@@ -1,159 +1,263 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liên hệ - VU PHAM STUDIO</title>
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liên hệ - VU PHAM STUDIO</title>
+
+  <!-- Dùng CSS chung để đồng bộ toàn site -->
+  <link rel="stylesheet" href="styleforlienhe.css"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <header>
-        <div class="main-container">
-            <div class="logo">VU PHAM STUDIO</div>
-            <nav>
-                <a href="index.html">Trang chủ</a>
-                <a href="dich-vu.html">Dịch vụ</a>
-                <a href="bang-gia.html">Bảng giá</a>
-                <a href="tra-cuu.html"><strong>Tra Cứu Ảnh</strong></a>
-                <a href="lien-he.html" class="active">Liên hệ</a>
-            </nav>
+  <!-- BANNER ĐẦU TRANG -->
+  <div class="top-banner" id="topBanner" role="region" aria-label="Thông báo khuyến mãi">
+    <div class="main-container banner-inner">
+      <p class="banner-text">
+        <strong>Lịch làm việc:</strong> 08:00–20:00 (T2–CN). Hẹn trước để có slot đẹp!
+        <a href="#contact" class="banner-cta">Đặt lịch</a>
+      </p>
+      <button class="banner-close" id="bannerClose" aria-label="Đóng">✕</button>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+   <header>
+  <div class="main-container">
+    <div class="logo">
+      <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w1500-h1500" 
+           alt="VU PHAM STUDIO Logo" class="logo-img"/>
+      <span>VU PHAM STUDIO</span>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Trang chủ</a>
+      <a href="dich-vu.html">Dịch vụ</a>
+      <a href="bang-gia.html">Bảng giá</a>
+      <a href="tra-cuu.html"><strong>Tra Cứu Ảnh</strong></a>
+      <a href="lien-he.html">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-decor"></div>
+      <div class="hero-content" data-reveal>
+        <h1>Liên hệ & Đặt lịch</h1>
+        <p>Gửi yêu cầu – chúng tôi phản hồi nhanh, tư vấn chọn gói phù hợp.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Gửi yêu cầu</a>
+          <a href="#map" class="btn btn-outline">Xem bản đồ</a>
         </div>
-    </header>
+      </div>
+      <a href="#contact" class="scroll-indicator" aria-label="Cuộn xuống"><span></span></a>
+    </section>
 
-    <main>
-        <section class="main-container features-section">
-            <h2 class="section-title">Liên hệ & Đặt lịch</h2>
-            <div class="contact-grid">
-                <div class="contact-details">
-                    <h3>Thông tin studio</h3>
-                    <p>Chúng tôi luôn sẵn sàng lắng nghe và tư vấn cho bạn. Đừng ngần ngại liên hệ qua điện thoại, email hoặc ghé thăm studio trực tiếp.</p>
-                    <div class="contact-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-                        <span>11 Lê Thiện Trị, Ngũ Hành Sơn, Đà Nẵng</span>
-                    </div>
-                    <div class="contact-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-                        <a href="tel:0987654321">0987.654.321</a>
-                    </div>
-                    <div class="contact-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-                        <a href="mailto:studiovupham@gmail.com">studiovupham@gmail.com</a>
-                    </div>
-                </div>
+    <!-- THÔNG TIN & FORM -->
+    <section class="main-container features-section" id="contact">
+      <h2 class="section-title" data-reveal>Liên hệ & Đặt lịch</h2>
 
-                <!-- Thay phần gửi tin nhắn bằng form đặt lịch -->
-                <div class="contact-form">
-                    <h3>Đặt lịch nhanh</h3>
-                    <form id="booking-form">
-                        <input type="text" name="name" placeholder="Họ và tên của bạn" required>
-                        <input type="tel" name="phone" placeholder="Số điện thoại" required>
-                        <select name="service" required>
-                            <option value="">-- Chọn dịch vụ --</option>
-                            <option>Ảnh thẻ lấy ngay</option>
-                            <option>Ảnh CV chuyên nghiệp</option>
-                            <option>Ảnh hộ chiếu / visa</option>
-                            <option>Combo ảnh thẻ + CV</option>
-                            <option>Chân dung cá nhân</option>
-                        </select>
-                        <input type="date" name="date" required>
-                        <input type="time" name="time" required>
-                        <textarea name="notes" rows="4" placeholder="Ghi chú thêm..."></textarea>
-                        <button type="submit" class="btn">Đặt lịch</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-        
-        <section class="map-section">
-  <h2 class="section-title">Tìm chúng tôi trên bản đồ</h2>
-  <iframe
-    src="https://www.google.com/maps?q=11%20L%C3%AA%20Thi%E1%BB%87n%20Tr%E1%BB%8B,%20Ng%C5%A9%20H%C3%A0nh%20S%C6%A1n,%20%C4%90%C3%A0%20N%E1%BA%B5ng&z=17&output=embed"
-    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-  <p style="text-align:center;margin-top:10px;font-style:italic;color:#777;">
-    Địa chỉ: 11 Lê Thiện Trị, Ngũ Hành Sơn, Đà Nẵng —
-    <a href="https://www.google.com/maps?q=11%20L%C3%AA%20Thi%E1%BB%87n%20Tr%E1%BB%8B,%20Ng%C5%A9%20H%C3%A0nh%20S%C6%A1n,%20%C4%90%C3%A0%20N%E1%BA%B5ng"
-       target="_blank" rel="noopener">Xem trên Google Maps</a>
-  </p>
-</section>
+      <div class="contact-grid" data-reveal>
+        <!-- Cột thông tin -->
+        <div class="contact-details">
+          <h3>Thông tin studio</h3>
+          <p>Chúng tôi luôn sẵn sàng lắng nghe và tư vấn. Liên hệ qua điện thoại, email hoặc ghé thăm studio trực tiếp.</p>
 
-    </main>
+          <div class="contact-item">
+            <!-- Map pin -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21s7.5-5.25 7.5-11.25A7.5 7.5 0 004.5 9.75C4.5 15.75 12 21 12 21z"/><circle cx="12" cy="9.75" r="2.25"/></svg>
+            <span>11 Lê Thiện Trị, Ngũ Hành Sơn, Đà Nẵng</span>
+          </div>
 
-    <footer>
-        <div class="main-container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>VU PHAM STUDIO</h4>
-                    <p>Nơi hình ảnh không chỉ là một bức hình, mà là một câu chuyện về sự chuyên nghiệp của bạn.</p>
-                </div>
-                 <div class="footer-col">
-                    <h4>Liên kết nhanh</h4>
-                    <a href="index.html">Trang chủ</a>
-                    <a href="dich-vu.html">Dịch vụ</a>
-                    <a href="lien-he.html">Liên hệ</a>
-                </div>
-                 <div class="footer-col">
-                    <h4>Liên hệ</h4>
-                    <p>11 Lê Thiện Trị, Ngũ Hành Sơn, Đà Nẵng</p>
-                    <p>studiovupham@gmail.com</p>
-                    <p>0987.654.321</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2025 VU PHAM Studio. Designed with Elegance.
-            </div>
+          <div class="contact-item">
+            <!-- Phone -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.75 6.75a2.25 2.25 0 012.25-2.25H8.1a1.5 1.5 0 011.41 1.03l.86 2.58a1.5 1.5 0 01-.39 1.56l-1.2 1.2a12 12 0 005.85 5.85l1.2-1.2a1.5 1.5 0 011.56-.39l2.58.86a1.5 1.5 0 011.03 1.41v2.1A2.25 2.25 0 0117.25 21h-.5C9.23 21 3 14.77 3 7.25v-.5z"/></svg>
+            <a href="tel:0987654321">0987.654.321</a>
+          </div>
+
+          <div class="contact-item">
+            <!-- Mail -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6.75A2.25 2.25 0 015.25 4.5h13.5A2.25 2.25 0 0121 6.75v10.5A2.25 2.25 0 0118.75 19.5H5.25A2.25 2.25 0 013 17.25V6.75z"/><path d="M3 7l9 6 9-6"/></svg>
+            <a href="mailto:studiovupham@gmail.com">studiovupham@gmail.com</a>
+          </div>
         </div>
-    </footer>
 
- <script>
-  const BOOK_API  = "https://script.google.com/macros/s/AKfycby9zaVW-Ue25t3U4aybFBbuZDAh7qCteS9uDVb52_2KsOYLvOiSMbc9yYexGmufRwtZrw/exec";
-  const BOOK_TOKEN = "VPS_2025_myStrongToken"; // trùng hệt CONFIG.API_TOKEN trong Apps Script
+        <!-- Cột form -->
+        <div class="contact-form">
+          <h3>Đặt lịch nhanh</h3>
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('booking-form');
+          <!-- STATUS INLINE -->
+          <div id="bookStatus" style="display:none;margin-bottom:12px;padding:10px 12px;border-radius:10px;border:1px solid var(--color-border);"></div>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const fd = new FormData(form);
-      fd.append('action','book');
-      fd.append('token', BOOK_TOKEN);
+          <form id="booking-form" novalidate>
+            <input type="text" name="name" placeholder="Họ và tên của bạn" aria-label="Họ và tên" required>
+            <input type="tel" name="phone" placeholder="Số điện thoại" aria-label="Số điện thoại" required>
+            <select name="service" aria-label="Chọn dịch vụ" required>
+              <option value="">-- Chọn dịch vụ --</option>
+              <option>Ảnh thẻ lấy ngay</option>
+              <option>Ảnh CV chuyên nghiệp</option>
+              <option>Ảnh hộ chiếu / visa</option>
+              <option>Combo ảnh thẻ + CV</option>
+              <option>Chân dung cá nhân</option>
+            </select>
+            <input type="date" name="date" aria-label="Ngày đặt" required>
+            <input type="time" name="time" aria-label="Giờ đặt" required>
+            <textarea name="notes" rows="4" placeholder="Ghi chú thêm..." aria-label="Ghi chú"></textarea>
+            <button type="submit" class="btn">Đặt lịch</button>
+          </form>
+          <p class="form-note" style="margin-top:10px;color:var(--color-text-muted)">Sau khi gửi, bạn sẽ nhận phản hồi xác nhận qua điện thoại hoặc email.</p>
+        </div>
+      </div>
+    </section>
 
-      // Debug: in ra các key/value để chắc form đã có đủ trường
-      console.log('FD entries:', Object.fromEntries(fd.entries()));
+    <!-- MAP -->
+    <section class="main-container features-section map-section" id="map">
+      <h2 class="section-title" data-reveal>Tìm chúng tôi trên bản đồ</h2>
+      <div data-reveal>
+        <iframe
+          title="Bản đồ đến VU PHAM STUDIO"
+          src="https://www.google.com/maps?q=11%20L%C3%AA%20Thi%E1%BB%87n%20Tr%E1%BB%8B,%20Ng%C5%A9%20H%C3%A0nh%20S%C6%A1n,%20%C4%90%C3%A0%20N%E1%BA%B5ng&z=17&output=embed"
+          width="100%" height="420" style="border:0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p style="text-align:center;margin-top:10px;font-style:italic;color:#777;">
+        Địa chỉ: 11 Lê Thiện Trị, Ngũ Hành Sơn, Đà Nẵng — 
+        <a href="https://www.google.com/maps?q=11%20L%C3%AA%20Thi%E1%BB%87n%20Tr%E1%BB%8B,%20Ng%C5%A9%20H%C3%A0nh%20S%C6%A1n,%20%C4%90%C3%A0%20N%E1%BA%B5ng" target="_blank" rel="noopener">Mở Google Maps</a>
+      </p>
+    </section>
+  </main>
 
-      try {
-        const res  = await fetch(BOOK_API, {
-          method: 'POST',
-          headers: { 'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8' },
-          body: new URLSearchParams([...fd]).toString()
-        });
-        const text = await res.text();
-        console.log('API raw:', text);
-        let data; try { data = JSON.parse(text); } catch {}
+  <!-- FOOTER -->
+  <footer>
+    <div class="main-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>VU PHAM STUDIO</h4>
+          <p>Nơi hình ảnh không chỉ là một bức hình, mà là một câu chuyện về sự chuyên nghiệp của bạn.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Liên kết nhanh</h4>
+          <a href="index.html">Trang chủ</a>
+          <a href="dich-vu.html">Dịch vụ</a>
+          <a href="lien-he.html">Liên hệ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Liên hệ</h4>
+          <p>11 Lê Thiện Trị, Ngũ Hành Sơn, Đà Nẵng</p>
+          <p>studiovupham@gmail.com</p>
+          <p>0987.654.321</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 VU PHAM Studio. Designed with Elegance.
+      </div>
+    </div>
+  </footer>
 
-        if (!res.ok) {
-          alert('HTTP ' + res.status + ' — kiểm tra Deploy (Who has access: Anyone).');
-        } else if (!data) {
-          alert('API không trả JSON. Có thể Web App chưa public hoặc chưa Update deployment.');
-        } else if (!data.ok) {
-          alert('Server báo lỗi: ' + (data.error || 'unknown_error'));
-        } else {
-          alert('✅ Đặt lịch thành công!');
-          form.reset();
-        }
-      } catch (err) {
-        console.error(err);
-        alert('❌ Không gọi được API. Kiểm tra BOOK_API/Internet.');
+  <!-- JS: banner, header blur, reveal + submit booking -->
+  <script>
+    // ====== Config API của bạn (giữ nguyên) ======
+    const BOOK_API  = "https://script.google.com/macros/s/AKfycby9zaVW-Ue25t3U4aybFBbuZDAh7qCteS9uDVb52_2KsOYLvOiSMbc9yYexGmufRwtZrw/exec";
+    const BOOK_TOKEN = "VPS_2025_myStrongToken"; // phải khớp CONFIG.API_TOKEN trong Apps Script
+
+    (function(){
+      // Banner nhớ trạng thái đóng
+      const banner = document.getElementById('topBanner');
+      const closeBtn = document.getElementById('bannerClose');
+      if (localStorage.getItem('vps_banner_dismissed') === '1') banner?.classList.add('hide');
+      closeBtn?.addEventListener('click', () => {
+        banner.classList.add('hide');
+        localStorage.setItem('vps_banner_dismissed', '1');
+      });
+
+      // Header blur khi cuộn
+      const header = document.querySelector('header');
+      const onScroll = () => { window.scrollY > 8 ? header.classList.add('is-scrolled') : header.classList.remove('is-scrolled'); };
+      onScroll(); document.addEventListener('scroll', onScroll, { passive: true });
+
+      // Reveal on scroll (tôn trọng reduce-motion)
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+          });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+        document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+      } else {
+        document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('in-view'));
       }
-    });
-  });
-</script>
 
+      // ====== Submit form đặt lịch ======
+      const form = document.getElementById('booking-form');
+      const statusEl = document.getElementById('bookStatus');
 
+      function setStatus(text, ok){
+        statusEl.style.display = 'block';
+        statusEl.textContent = text;
+        statusEl.style.borderColor = ok ? 'rgba(76,175,80,.45)' : 'rgba(244,67,54,.35)';
+        statusEl.style.background = ok ? 'rgba(76,175,80,.06)' : 'rgba(244,67,54,.06)';
+        statusEl.style.color = ok ? '#2e7d32' : '#c62828';
+      }
+
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Kiểm tra sơ bộ
+        const name  = form.name?.value?.trim();
+        const phone = form.phone?.value?.trim();
+        const svc   = form.service?.value?.trim();
+        const date  = form.date?.value?.trim();
+        const time  = form.time?.value?.trim();
+        if (!name || !phone || !svc || !date || !time) {
+          setStatus('Vui lòng điền đủ các trường bắt buộc.', false);
+          return;
+        }
+
+        const fd = new FormData(form);
+        fd.append('action','book');
+        fd.append('token', BOOK_TOKEN);
+
+        try {
+          const res  = await fetch(BOOK_API, {
+            method: 'POST',
+            headers: { 'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8' },
+            body: new URLSearchParams([...fd]).toString()
+          });
+
+          const raw = await res.text();
+          let data = null; try { data = JSON.parse(raw); } catch (_) {}
+
+          if (!res.ok) {
+            alert('HTTP ' + res.status + ' — kiểm tra Deploy (Who has access: Anyone).');
+            setStatus('Không gửi được (HTTP '+res.status+'). Vui lòng kiểm tra cấu hình Web App.', false);
+            return;
+          }
+          if (!data) {
+            setStatus('API không trả JSON hợp lệ. Có thể Web App chưa public hoặc chưa Update deployment.', false);
+            return;
+          }
+          if (!data.ok) {
+            setStatus('Server báo lỗi: ' + (data.error || 'unknown_error'), false);
+            return;
+          }
+
+          // Thành công
+          setStatus('✅ Đặt lịch thành công! Chúng tôi sẽ sớm liên hệ xác nhận.', true);
+          form.reset();
+
+        } catch (err) {
+          console.error(err);
+          alert('❌ Không gọi được API. Kiểm tra BOOK_API/Internet.');
+          setStatus('Không thể kết nối API. Vui lòng thử lại sau.', false);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
