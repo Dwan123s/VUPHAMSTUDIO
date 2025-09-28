@@ -318,3 +318,21 @@ footer{
     display: block;
   }
 }
+.mini-gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap:16px;
+  margin-top:18px
+}
+.mini-gallery-grid figure{
+  border:1px solid #EAECEE;
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 4px 14px rgba(0,0,0,.06);
+}
+.mini-gallery-grid img{
+  width:100%;height:auto;display:block;
+  transition:transform .3s ease;
+}
+.mini-gallery-grid img:hover{transform:scale(1.05)}

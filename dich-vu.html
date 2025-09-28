@@ -4,15 +4,16 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dịch vụ - VU PHAM STUDIO</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="styleforldichvu.css"/>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet"/>
 </head>
-</style>
-</head>
-<body>
+<body data-page="dich-vu">
   <!-- BANNER -->
   <div class="top-banner" id="topBanner" role="region" aria-label="Thông báo khuyến mãi">
     <div class="main-container banner-inner">
@@ -24,26 +25,26 @@
     </div>
   </div>
 
- <header>
-  <div class="main-container header-wrap">
-    <div class="logo">
-      <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w80-h80" 
-           alt="VU PHAM STUDIO Logo" class="logo-img"/>
-      <span>VU PHAM STUDIO</span>
+  <!-- HEADER -->
+  <header>
+    <div class="main-container header-wrap">
+      <div class="logo">
+        <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w80-h80"
+             alt="VU PHAM STUDIO Logo" class="logo-img"/>
+        <span>VU PHAM STUDIO</span>
+      </div>
+
+      <button class="nav-toggle" aria-label="Mở menu">☰</button>
+
+      <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="dich-vu.html">Dịch vụ</a>
+        <a href="bang-gia.html">Bảng giá</a>
+        <a href="tra-cuu.html">Tra Cứu Ảnh</a>
+        <a href="lien-he.html">Liên hệ</a>
+      </nav>
     </div>
-
-    <!-- Nút menu cho mobile -->
-    <button class="nav-toggle" aria-label="Mở menu">☰</button>
-
-    <nav>
-      <a href="index.html" class="active">Trang chủ</a>
-      <a href="dich-vu.html">Dịch vụ</a>
-      <a href="bang-gia.html">Bảng giá</a>
-      <a href="tra-cuu.html"><strong>Tra Cứu Ảnh</strong></a>
-      <a href="lien-he.html">Liên hệ</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
   <main>
     <!-- HERO -->
@@ -161,7 +162,7 @@
           </div>
         </article>
 
-        <!-- NEW: Visa các nước (mẫu quy định) -->
+        <!-- Visa -->
         <article class="feature-item" data-tags="visa mỹ hàn nhật schengen quy định kích thước" data-reveal>
           <div class="feature-icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4z"/><path d="M8 10h8M8 14h5"/></svg>
@@ -181,7 +182,7 @@
           </div>
         </article>
 
-        <!-- NEW: Chụp tận nơi -->
+        <!-- Tận nơi -->
         <article class="feature-item" data-tags="tận nơi tại nhà bệnh viện người già trẻ em" data-reveal>
           <div class="feature-icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18v10H3z"/><path d="M7 7V5h10v2"/></svg>
@@ -214,7 +215,7 @@
           <div class="svc-dot"></div>
         </div>
       </div>
-      <p style="color:var(--svc-muted);margin-top:8px">
+      <p style="color:var(--svc-muted);margin-top:8px">Minh hoạ quy trình chỉnh sửa giữ nét tự nhiên.</p>
     </section>
 
     <!-- FAQ -->
@@ -235,7 +236,7 @@
         </details>
         <details class="svc-qa">
           <summary>Visa các nước có quy định khác nhau?</summary>
-          <p>Có. Ví dụ: Mỹ 50×50mm nền trắng; Schengen 35×45mm; Nhật/Hàn yêu cầu trán/ tai không bị che quá nhiều… Chúng tôi sẽ đo kiểm và canh khung đúng chuẩn.</p>
+          <p>Có. Ví dụ: Mỹ 50×50mm nền trắng; Schengen 35×45mm; Nhật/Hàn yêu cầu trán/tai không bị che quá nhiều… Chúng tôi sẽ đo kiểm và canh khung đúng chuẩn.</p>
         </details>
       </div>
     </section>
@@ -266,7 +267,7 @@
     </div>
   </footer>
 
-  <!-- MODALS (nội dung chi tiết) -->
+  <!-- MODALS -->
   <div class="svc-modal" id="modal-id" aria-hidden="true" role="dialog" aria-labelledby="modal-id-title">
     <div class="svc-dialog" role="document">
       <header>
@@ -337,7 +338,7 @@
         <ol>
           <li>Chọn quốc gia & kích thước: Mỹ (50×50), Schengen (35×45), Nhật/Hàn…</li>
           <li>Trang phục gọn, không đội mũ/kính râm; kính trong không phản chiếu.</li>
-          <li>Mặt nhìn thẳng, mắt mở rõ; tóc không che mắt lông mày.</li>
+          <li>Mặt nhìn thẳng, mắt mở rõ; tóc không che mắt/lông mày.</li>
           <li>Nền trắng (hoặc theo quy định), không bóng đổ mạnh sau đầu.</li>
         </ol>
       </div>
@@ -368,28 +369,33 @@
     </div>
   </div>
 
-  <!-- JS: banner + header blur + reveal + filter/search + modal + before-after -->
+  <!-- JS: banner + header blur + reveal + filter/search + modal + before-after + active menu -->
   <script>
     (function(){
-      // Banner dismiss
+      // ===== Banner dismiss
       const banner=document.getElementById('topBanner');
       const closeBtn=document.getElementById('bannerClose');
       if(localStorage.getItem('vps_banner_dismissed')==='1'){banner?.classList.add('hide')}
       closeBtn?.addEventListener('click',()=>{banner.classList.add('hide');localStorage.setItem('vps_banner_dismissed','1')});
 
-      // Header effect
+      // ===== Header effect
       const header=document.querySelector('header');
       const onScroll=()=>{window.scrollY>8?header.classList.add('is-scrolled'):header.classList.remove('is-scrolled')};
       onScroll();document.addEventListener('scroll',onScroll,{passive:true});
 
-      // Reveal on view
+      // ===== Mobile nav toggle
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('header nav');
+      toggle?.addEventListener('click', () => nav.classList.toggle('show'));
+
+      // ===== Reveal on view
       const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if(!reduce && 'IntersectionObserver' in window){
         const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}})},{rootMargin:'0px 0px -12% 0px',threshold:0.08});
         document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
       } else { document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('in-view')) }
 
-      // Filter chips + Search
+      // ===== Filter chips + Search
       const chips=[...document.querySelectorAll('.svc-chip')];
       const grid=document.getElementById('svcGrid');
       const cards=[...grid.querySelectorAll('.feature-item')];
@@ -400,21 +406,43 @@
         cards.forEach(c=>{
           const tags=(c.getAttribute('data-tags')||'').toLowerCase();
           const matchQ=!qn || tags.includes(qn);
-          const inGroup = active==='all' || (active==='id' && tags.includes('cccd')) || (active==='cv' && tags.includes('cv')) || (active==='biz' && tags.includes('doanh')) || (active==='extra' && (tags.includes('retouch')||tags.includes('scan')||tags.includes('ép')||tags.includes('tra cứu')));
+          const inGroup = active==='all'
+            || (active==='id'  && (tags.includes('id') || tags.includes('cccd') || tags.includes('hộ chiếu') || tags.includes('visa')))
+            || (active==='cv'  && tags.includes('cv'))
+            || (active==='biz' && (tags.includes('doanh') || tags.includes('team') || tags.includes('business')))
+            || (active==='extra' && (tags.includes('retouch')||tags.includes('scan')||tags.includes('ép')||tags.includes('tra cứu')||tags.includes('makeup')));
           c.style.display = (matchQ && inGroup)?'flex':'none';
         });
       };
-      chips.forEach(ch=>ch.addEventListener('click',()=>{chips.forEach(x=>x.classList.remove('is-active'));ch.classList.add('is-active');active=ch.dataset.filter;apply()}));
+      chips.forEach(ch=>ch.addEventListener('click',()=>{
+        chips.forEach(x=>x.classList.remove('is-active'));
+        ch.classList.add('is-active');
+        active=ch.dataset.filter;
+        apply();
+      }));
       search?.addEventListener('input',e=>{q=e.target.value;apply()});
 
-      // Modal system
+      // ===== Modal system
       const openBtns=[...document.querySelectorAll('[data-open-modal]')];
-      const modals={ id:document.getElementById('modal-id'), cv:document.getElementById('modal-cv'), biz:document.getElementById('modal-biz'), visa:document.getElementById('modal-visa'), onsite:document.getElementById('modal-onsite') };
-      openBtns.forEach(b=>b.addEventListener('click',e=>{e.preventDefault();const key=b.getAttribute('data-modal');modals[key]?.classList.add('is-open');modals[key]?.setAttribute('aria-hidden','false')}));
-      document.querySelectorAll('[data-close-modal]').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.svc-modal')?.classList.remove('is-open')));
-      document.querySelectorAll('.svc-modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m){m.classList.remove('is-open')}}));
+      const modals={ id:$('#modal-id'), cv:$('#modal-cv'), biz:$('#modal-biz'), visa:$('#modal-visa'), onsite:$('#modal-onsite') };
+      function $(sel){return document.querySelector(sel)}
+      openBtns.forEach(b=>b.addEventListener('click',e=>{
+        e.preventDefault();
+        const key=b.getAttribute('data-modal');
+        const m=modals[key]; if(!m) return;
+        m.classList.add('is-open'); m.setAttribute('aria-hidden','false');
+      }));
+      document.querySelectorAll('[data-close-modal]').forEach(btn=>{
+        btn.addEventListener('click',()=>{const m=btn.closest('.svc-modal'); m?.classList.remove('is-open'); m?.setAttribute('aria-hidden','true')});
+      });
+      document.querySelectorAll('.svc-modal').forEach(m=>{
+        m.addEventListener('click',e=>{if(e.target===m){m.classList.remove('is-open'); m.setAttribute('aria-hidden','true')}})
+      });
+      document.addEventListener('keydown',e=>{
+        if(e.key==='Escape'){document.querySelectorAll('.svc-modal.is-open').forEach(m=>{m.classList.remove('is-open'); m.setAttribute('aria-hidden','true')})}
+      });
 
-      // Before/After slider
+      // ===== Before/After slider
       const cmp=document.getElementById('svcCompare');
       if(cmp){
         const after=cmp.querySelector('.svc-after');
@@ -422,14 +450,43 @@
         const dot=cmp.querySelector('.svc-dot');
         const setX=(x)=>{const r=cmp.getBoundingClientRect(); let p=(x-r.left)/r.width; p=Math.max(0,Math.min(1,p)); after.style.clipPath=`inset(0 0 0 ${p*100}%)`; line.style.left=dot.style.left=`${p*100}%`; };
         const move=(e)=>{ if(e.touches){setX(e.touches[0].clientX)} else {setX(e.clientX)} };
+        // Khởi tạo ở giữa
+        setX(cmp.getBoundingClientRect().left + cmp.getBoundingClientRect().width/2);
         cmp.addEventListener('mousemove',move);
         cmp.addEventListener('touchmove',move,{passive:true});
       }
+
+      // ===== Active nav (chắc chắn đúng)
+      const bodyPage = document.body.dataset.page || '';
+      const map = {
+        "index":"index.html","index.html":"index.html",
+        "dich-vu":"dich-vu.html","dich-vu.html":"dich-vu.html",
+        "bang-gia":"bang-gia.html","bang-gia.html":"bang-gia.html",
+        "tra-cuu":"tra-cuu.html","tra-cuu.html":"tra-cuu.html",
+        "lien-he":"lien-he.html","lien-he.html":"lien-he.html"
+      };
+      const links = document.querySelectorAll("header nav a");
+      links.forEach(a=>a.classList.remove("active"));
+      // Ưu tiên data-page
+      if (map[bodyPage]) {
+        links.forEach(a=>{ if (a.getAttribute("href")===map[bodyPage]) a.classList.add("active"); });
+      } else {
+        // Fallback theo URL
+        const normalize = (pathname)=>{
+          let p = pathname.replace(/\/+$/,'');
+          if (p === '' || p === '/') return 'index.html';
+          const last = p.split('/').pop();
+          return /\.[a-z0-9]+$/i.test(last) ? last.toLowerCase() : (last.toLowerCase() + '.html');
+        };
+        const current = normalize(location.pathname);
+        links.forEach(a=>{
+          const hrefPath = new URL(a.getAttribute('href'), location.origin).pathname;
+          if (normalize(hrefPath) === current) a.classList.add('active');
+        });
+      }
     })();
   </script>
-               const toggle = document.querySelector('.nav-toggle');
-        const nav = document.querySelector('header nav');
-        toggle?.addEventListener('click', () => nav.classList.toggle('show'));
+
   <!-- Schema.org (SEO) -->
   <script type="application/ld+json">
   {
@@ -447,8 +504,6 @@
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Tra cứu & Lưu trữ"}}
     ]
   }
-
-  
   </script>
 </body>
 </html>

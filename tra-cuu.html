@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- CSS nhỏ dành riêng cho trang tra cứu (tận dụng token trong styleforindex.css) -->
+  <!-- CSS nhỏ dành riêng cho trang tra cứu -->
   <style>
     .lookup-hero .hero-content {max-width: 860px}
     .lookup-hero .search-area {margin-top: 14px}
@@ -105,7 +105,7 @@
     .lookup-note{margin-top:10px;text-align:center;color:var(--color-text-muted);font-size:.95rem}
   </style>
 </head>
-<body>
+<body data-page="tra-cuu">
   <!-- BANNER ĐẦU TRANG -->
   <div class="top-banner" id="topBanner" role="region" aria-label="Thông báo">
     <div class="main-container banner-inner">
@@ -117,27 +117,27 @@
     </div>
   </div>
 
-  <!-- HEADER -->
+  <!-- ===== HEADER ===== -->
   <header>
-  <div class="main-container header-wrap">
-    <div class="logo">
-      <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w80-h80" 
-           alt="VU PHAM STUDIO Logo" class="logo-img"/>
-      <span>VU PHAM STUDIO</span>
+    <div class="main-container header-wrap">
+      <div class="logo">
+        <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w80-h80"
+             alt="VU PHAM STUDIO Logo" class="logo-img"/>
+        <span>VU PHAM STUDIO</span>
+      </div>
+
+      <button class="nav-toggle" aria-label="Mở menu">☰</button>
+
+      <nav>
+        <!-- KHÔNG để class="active" cố định ở bất kỳ link nào -->
+        <a href="index.html">Trang chủ</a>
+        <a href="dich-vu.html">Dịch vụ</a>
+        <a href="bang-gia.html">Bảng giá</a>
+        <a href="tra-cuu.html">Tra Cứu Ảnh</a>
+        <a href="lien-he.html">Liên hệ</a>
+      </nav>
     </div>
-
-    <!-- Nút menu cho mobile -->
-    <button class="nav-toggle" aria-label="Mở menu">☰</button>
-
-    <nav>
-      <a href="index.html" class="active">Trang chủ</a>
-      <a href="dich-vu.html">Dịch vụ</a>
-      <a href="bang-gia.html">Bảng giá</a>
-      <a href="tra-cuu.html"><strong>Tra Cứu Ảnh</strong></a>
-      <a href="lien-he.html">Liên hệ</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
   <main>
     <!-- HERO + Ô TRA CỨU -->
@@ -205,7 +205,7 @@
     </div>
   </footer>
 
-  <!-- JS: banner, header blur, reveal + logic tra cứu -->
+  <!-- JS: banner, header blur, reveal + logic tra cứu + mobile nav + active menu -->
   <script>
     // ====== API của bạn (giữ nguyên) ======
     const API = "https://script.google.com/macros/s/AKfycbzuvdWv9IKtWJ0DiQkANjVibpEvvTyqQVBwvb5Rw13oiniT9IfOvpgiEwKbL4AOcZTZUw/exec";
@@ -245,6 +245,40 @@
       const clearBtn = document.getElementById('clear-btn');
       const historyContainer = document.getElementById('history-container');
       const historyListEl = document.getElementById('history-list');
+
+      // Mobile nav
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('header nav');
+      toggle?.addEventListener('click', () => nav.classList.toggle('show'));
+
+      // Active nav (ưu tiên data-page, fallback URL)
+      (function activateNav(){
+        const bodyPage = (document.body.dataset.page || '').toLowerCase();
+        const map = {
+          "index":"index.html","index.html":"index.html",
+          "dich-vu":"dich-vu.html","dich-vu.html":"dich-vu.html",
+          "bang-gia":"bang-gia.html","bang-gia.html":"bang-gia.html",
+          "tra-cuu":"tra-cuu.html","tra-cuu.html":"tra-cuu.html",
+          "lien-he":"lien-he.html","lien-he.html":"lien-he.html"
+        };
+        const links = document.querySelectorAll('header nav a');
+        links.forEach(a=>a.classList.remove('active'));
+        if (map[bodyPage]) {
+          links.forEach(a=>{ if (a.getAttribute('href')===map[bodyPage]) a.classList.add('active'); });
+        } else {
+          const normalize = (pathname)=>{
+            let p = pathname.replace(/\/+$/,'');
+            if (p === '' || p === '/') return 'index.html';
+            const last = p.split('/').pop();
+            return /\.[a-z0-9]+$/i.test(last) ? last.toLowerCase() : (last.toLowerCase() + '.html');
+          };
+          const current = normalize(location.pathname);
+          links.forEach(a=>{
+            const hrefPath = new URL(a.getAttribute('href'), location.origin).pathname;
+            if (normalize(hrefPath) === current) a.classList.add('active');
+          });
+        }
+      })();
 
       // Events
       btn.addEventListener('click', search);
@@ -366,9 +400,6 @@
       if (urlCode) {
         codeEl.value = urlCode; clearBtn.style.display = 'block'; search();
       }
-      const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('header nav');
-  toggle?.addEventListener('click', () => nav.classList.toggle('show'));
     })();
   </script>
 </body>

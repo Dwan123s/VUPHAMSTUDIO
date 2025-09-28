@@ -1,231 +1,272 @@
-  <!DOCTYPE html>
-  <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Trang chủ - VU PHAM STUDIO</title>
-    <link rel="stylesheet" href="styleforindex.css"/>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trang chủ - VU PHAM STUDIO</title>
+  <link rel="stylesheet" href="styleforindex.css"/>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet"/>
-  </head>
-  <body>
-    <!-- BANNER ĐẦU TRANG -->
-    <div class="top-banner" id="topBanner" role="region" aria-label="Thông báo khuyến mãi">
-      <div class="main-container banner-inner">
-        <p class="banner-text">
-          <strong>Ưu đãi tháng này:</strong> Ảnh thẻ lấy ngay — <em>giảm 20%</em> cho sinh viên. 
-          <a href="bang-gia.html" class="banner-cta">Xem bảng giá</a>
-        </p>
-        <button class="banner-close" id="bannerClose" aria-label="Đóng thông báo" title="Đóng">✕</button>
-      </div>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body data-page="index">
+  <!-- BANNER ĐẦU TRANG -->
+  <div class="top-banner" id="topBanner" role="region" aria-label="Thông báo khuyến mãi">
+    <div class="main-container banner-inner">
+      <p class="banner-text">
+        <strong>Ưu đãi tháng này:</strong> Ảnh thẻ lấy ngay — <em>giảm 20%</em> cho sinh viên. 
+        <a href="bang-gia.html" class="banner-cta">Xem bảng giá</a>
+      </p>
+      <button class="banner-close" id="bannerClose" aria-label="Đóng thông báo" title="Đóng">✕</button>
     </div>
-
-   <header>
-  <div class="main-container header-wrap">
-    <div class="logo">
-      <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w80-h80" 
-           alt="VU PHAM STUDIO Logo" class="logo-img"/>
-      <span>VU PHAM STUDIO</span>
-    </div>
-
-    <!-- Nút menu cho mobile -->
-    <button class="nav-toggle" aria-label="Mở menu">☰</button>
-
-    <nav>
-      <a href="index.html" class="active">Trang chủ</a>
-      <a href="dich-vu.html">Dịch vụ</a>
-      <a href="bang-gia.html">Bảng giá</a>
-      <a href="tra-cuu.html"><strong>Tra Cứu Ảnh</strong></a>
-      <a href="lien-he.html">Liên hệ</a>
-    </nav>
   </div>
-</header>
 
+  <header>
+    <div class="main-container header-wrap">
+      <div class="logo">
+        <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w80-h80" 
+             alt="VU PHAM STUDIO Logo" class="logo-img"/>
+        <span>VU PHAM STUDIO</span>
+      </div>
 
-    <main>
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-decor"></div>
-        <div class="hero-content" data-reveal>
-          <h1>Nâng tầm hình ảnh, khẳng định giá trị bản thân.</h1>
-          <p>Dịch vụ chụp ảnh CV, ảnh thẻ & chân dung chuyên nghiệp tại Đà Nẵng.</p>
-          <div class="hero-actions">
-            <a href="dich-vu.html" class="btn">Khám phá dịch vụ</a>
-            <a href="#features" class="btn btn-outline">Vì sao chọn chúng tôi?</a>
-          </div>
-        </div>
-        <a href="#features" class="scroll-indicator" aria-label="Cuộn xuống">
-          <span></span>
-        </a>
-      </section>
+      <!-- Nút menu cho mobile -->
+      <button class="nav-toggle" aria-label="Mở menu">☰</button>
 
-      <!-- FEATURES -->
-      <section class="main-container features-section" id="features">
-        <h2 class="section-title" data-reveal>Tại sao chọn VU PHAM Studio?</h2>
+      <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="dich-vu.html">Dịch vụ</a>
+        <a href="bang-gia.html">Bảng giá</a>
+        <a href="tra-cuu.html">Tra Cứu Ảnh</a>
+        <a href="lien-he.html">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
 
-        <div class="features-grid">
-          <div class="feature-item" data-reveal>
-            <div class="feature-icon">
-              <!-- Sparkles icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.455-2.456L12.75 18l1.178-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178.398a3.375 3.375 0 00-2.456 2.456z"/>
-              </svg>
-            </div>
-            <h3>Chỉnh sửa chuyên nghiệp</h3>
-            <p>Mỗi bức ảnh đều được retouch tỉ mỉ, giữ lại nét tự nhiên nhưng vẫn đảm bảo sự hoàn hảo và chuyên nghiệp.</p>
-          </div>
-
-          <div class="feature-item" data-reveal>
-            <div class="feature-icon">
-              <!-- Clock icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-            </div>
-            <h3>Lưu trữ dài hạn</h3>
-            <p>An tâm với dịch vụ lưu trữ ảnh miễn phí 12 tháng. Dễ dàng yêu cầu và nhận lại file gốc bất cứ khi nào bạn cần.</p>
-          </div>
-
-          <div class="feature-item" data-reveal>
-            <div class="feature-icon">
-              <!-- Bolt icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
-              </svg>
-            </div>
-            <h3>Nhanh chóng & Tiện lợi</h3>
-            <p>Trải nghiệm dịch vụ nhanh gọn, nhận ảnh ngay và tra cứu trực tuyến 24/7, tiết kiệm tối đa thời gian của bạn.</p>
-          </div>
-        </div>
-      </section>
-    </main>
-      <!-- PROCESS -->
-      <section class="process-section" id="process">
-        <div class="main-container">
-          <h2 class="section-title" data-reveal>Quy trình 4 bước — Lấy ảnh siêu nhanh</h2>
-
-          <ol class="process-steps">
-            <!-- Bước 1 -->
-            <li class="process-step" data-reveal>
-              <div class="step-head">
-                <span class="step-badge" aria-hidden="true">1</span>
-                <h3>Đặt lịch / Đến trực tiếp</h3>
-              </div>
-              <p>Liên hệ trước để giữ slot hoặc ghé studio bất cứ lúc nào trong khung giờ mở cửa.</p>
-              <div class="step-action">
-                <a class="btn btn-outline" href="lien-he.html">Liên hệ ngay</a>
-              </div>
-            </li>
-
-            <!-- Bước 2 -->
-            <li class="process-step" data-reveal>
-              <div class="step-head">
-                <span class="step-badge" aria-hidden="true">2</span>
-                <h3>Chụp & chọn ảnh</h3>
-              </div>
-              <p>Chụp nhanh, nhiều góc; chọn ảnh ưng ý ngay tại chỗ với gợi ý bố cục & dáng.</p>
-              <div class="step-action">
-                <button class="btn" type="button">Xem gói chụp</button>
-              </div>
-            </li>
-
-            <!-- Bước 3 -->
-            <li class="process-step" data-reveal>
-              <div class="step-head">
-                <span class="step-badge" aria-hidden="true">3</span>
-                <h3>Retouch chuyên nghiệp</h3>
-              </div>
-              <p>Chỉnh màu da, ánh sáng, khuyết điểm nhẹ—giữ nét tự nhiên, tiêu chuẩn hồ sơ/CV.</p>
-              <div class="step-action">
-                <a class="btn btn-outline" href="dich-vu.html#retouch">Chi tiết retouch</a>
-              </div>
-            </li>
-
-            <!-- Bước 4 -->
-            <li class="process-step" data-reveal>
-              <div class="step-head">
-                <span class="step-badge" aria-hidden="true">4</span>
-                <h3>Nhận ảnh & tra cứu 24/7</h3>
-              </div>
-              <p>Nhận file/ngay bản in. Ảnh lưu 12 tháng, có thể tra cứu & tải lại bất cứ lúc nào.</p>
-              <div class="step-action">
-                <a class="btn" href="tra-cuu.html">Tra cứu ảnh</a>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="main-container">
-        <div class="footer-grid">
-          <div class="footer-col">
-            <h4>VU PHAM STUDIO</h4>
-            <p>Nơi hình ảnh không chỉ là một bức hình, mà là một câu chuyện về sự chuyên nghiệp của bạn.</p>
-          </div>
-          <div class="footer-col">
-            <h4>Liên kết nhanh</h4>
-            <a href="index.html">Trang chủ</a>
-            <a href="dich-vu.html">Dịch vụ</a>
-            <a href="lien-he.html">Liên hệ</a>
-          </div>
-          <div class="footer-col">
-            <h4>Liên hệ</h4>
-            <p>11 Lê Thiện Trị, Ngũ Hành Sơn, Đà Nẵng</p>
-            <p>studiovupham@gmail.com</p>
-            <p>0987.654.321</p>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          &copy; 2025 VU PHAM Studio. Designed with Elegance.
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-decor"></div>
+      <div class="hero-content" data-reveal>
+        <h1>Nâng tầm hình ảnh, khẳng định giá trị bản thân.</h1>
+        <p>Dịch vụ chụp ảnh CV, ảnh thẻ & chân dung chuyên nghiệp tại Đà Nẵng.</p>
+        <div class="hero-actions">
+          <a href="dich-vu.html" class="btn">Khám phá dịch vụ</a>
+          <a href="#features" class="btn btn-outline">Vì sao chọn chúng tôi?</a>
         </div>
       </div>
-    </footer>
+      <a href="#features" class="scroll-indicator" aria-label="Cuộn xuống">
+        <span></span>
+      </a>
+    </section>
 
-    <!-- JS nhỏ cho banner, header blur & reveal khi cuộn -->
-    <script>
-      (function () {
-        const banner = document.getElementById('topBanner');
-        const closeBtn = document.getElementById('bannerClose');
-        if (localStorage.getItem('vps_banner_dismissed') === '1') {
-          banner?.classList.add('hide');
-        }
-        closeBtn?.addEventListener('click', () => {
-          banner.classList.add('hide');
-          localStorage.setItem('vps_banner_dismissed', '1');
-        });
+    <!-- FEATURES -->
+    <section class="main-container features-section" id="features">
+      <h2 class="section-title" data-reveal>Tại sao chọn VU PHAM Studio?</h2>
 
-        const header = document.querySelector('header');
-        const onScroll = () => {
-          if (window.scrollY > 8) header.classList.add('is-scrolled');
-          else header.classList.remove('is-scrolled');
+      <div class="features-grid">
+        <div class="feature-item" data-reveal>
+          <div class="feature-icon">
+            <!-- Sparkles icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.455-2.456L12.75 18l1.178-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178.398a3.375 3.375 0 00-2.456 2.456z"/>
+            </svg>
+          </div>
+          <h3>Chỉnh sửa chuyên nghiệp</h3>
+          <p>Mỗi bức ảnh đều được retouch tỉ mỉ, giữ lại nét tự nhiên nhưng vẫn đảm bảo sự hoàn hảo và chuyên nghiệp.</p>
+        </div>
+
+        <div class="feature-item" data-reveal>
+          <div class="feature-icon">
+            <!-- Clock icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3>Lưu trữ dài hạn</h3>
+          <p>An tâm với dịch vụ lưu trữ ảnh miễn phí 12 tháng. Dễ dàng yêu cầu và nhận lại file gốc bất cứ khi nào bạn cần.</p>
+        </div>
+
+        <div class="feature-item" data-reveal>
+          <div class="feature-icon">
+            <!-- Bolt icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+            </svg>
+          </div>
+          <h3>Nhanh chóng & Tiện lợi</h3>
+          <p>Trải nghiệm dịch vụ nhanh gọn, nhận ảnh ngay và tra cứu trực tuyến 24/7, tiết kiệm tối đa thời gian của bạn.</p>
+        </div>
+      </div>
+    </section>
+   <!-- IMAGE BANNER 16x9 -->
+    <section class="main-container hero-image" data-reveal>
+      <div class="hero-img-wrapper">
+        <img src="https://lh3.googleusercontent.com/d/1zV16JTkdNMUbl9tKP5AEvQARL4s98atr=w1200-h675" 
+             alt="Ảnh minh họa VU PHAM Studio" loading="lazy"/>
+      </div>
+    </section>
+
+
+    <!-- PROCESS -->
+    <section class="process-section" id="process">
+      <div class="main-container">
+        <h2 class="section-title" data-reveal>Quy trình 4 bước — Lấy ảnh siêu nhanh</h2>
+
+        <ol class="process-steps">
+          <!-- Bước 1 -->
+          <li class="process-step" data-reveal>
+            <div class="step-head">
+              <span class="step-badge" aria-hidden="true">1</span>
+              <h3>Đặt lịch / Đến trực tiếp</h3>
+            </div>
+            <p>Liên hệ trước để giữ slot hoặc ghé studio bất cứ lúc nào trong khung giờ mở cửa.</p>
+            <div class="step-action">
+              <a class="btn btn-outline" href="lien-he.html">Liên hệ ngay</a>
+            </div>
+          </li>
+
+          <!-- Bước 2 -->
+          <li class="process-step" data-reveal>
+            <div class="step-head">
+              <span class="step-badge" aria-hidden="true">2</span>
+              <h3>Chụp & chọn ảnh</h3>
+            </div>
+            <p>Chụp nhanh, nhiều góc; chọn ảnh ưng ý ngay tại chỗ với gợi ý bố cục & dáng.</p>
+            <div class="step-action">
+              <button class="btn" type="button">Xem gói chụp</button>
+            </div>
+          </li>
+
+          <!-- Bước 3 -->
+          <li class="process-step" data-reveal>
+            <div class="step-head">
+              <span class="step-badge" aria-hidden="true">3</span>
+              <h3>Retouch chuyên nghiệp</h3>
+            </div>
+            <p>Chỉnh màu da, ánh sáng, khuyết điểm nhẹ—giữ nét tự nhiên, tiêu chuẩn hồ sơ/CV.</p>
+            <div class="step-action">
+              <a class="btn btn-outline" href="dich-vu.html#retouch">Chi tiết retouch</a>
+            </div>
+          </li>
+
+          <!-- Bước 4 -->
+          <li class="process-step" data-reveal>
+            <div class="step-head">
+              <span class="step-badge" aria-hidden="true">4</span>
+              <h3>Nhận ảnh & tra cứu 24/7</h3>
+            </div>
+            <p>Nhận file/ngay bản in. Ảnh lưu 12 tháng, có thể tra cứu & tải lại bất cứ lúc nào.</p>
+            <div class="step-action">
+              <a class="btn" href="tra-cuu.html">Tra cứu ảnh</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="main-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>VU PHAM STUDIO</h4>
+          <p>Nơi hình ảnh không chỉ là một bức hình, mà là một câu chuyện về sự chuyên nghiệp của bạn.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Liên kết nhanh</h4>
+          <a href="index.html">Trang chủ</a>
+          <a href="dich-vu.html">Dịch vụ</a>
+          <a href="lien-he.html">Liên hệ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Liên hệ</h4>
+          <p>11 Lê Thiện Trị, Ngũ Hành Sơn, Đà Nẵng</p>
+          <p>studiovupham@gmail.com</p>
+          <p>0987.654.321</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 VU PHAM Studio. Designed with Elegance.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS nhỏ cho banner, header blur, reveal, mobile nav & active menu -->
+  <script>
+    (function () {
+      // Banner
+      const banner = document.getElementById('topBanner');
+      const closeBtn = document.getElementById('bannerClose');
+      if (localStorage.getItem('vps_banner_dismissed') === '1') {
+        banner?.classList.add('hide');
+      }
+      closeBtn?.addEventListener('click', () => {
+        banner.classList.add('hide');
+        localStorage.setItem('vps_banner_dismissed', '1');
+      });
+
+      // Header blur khi cuộn
+      const header = document.querySelector('header');
+      const onScroll = () => {
+        if (window.scrollY > 8) header.classList.add('is-scrolled');
+        else header.classList.remove('is-scrolled');
+      };
+      onScroll();
+      document.addEventListener('scroll', onScroll, { passive: true });
+
+      // Reveal on scroll (tôn trọng reduce motion)
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('in-view');
+              io.unobserve(e.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+        document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+      } else {
+        document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('in-view'));
+      }
+
+      // Mobile nav
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('header nav');
+      toggle?.addEventListener('click', () => nav.classList.toggle('show'));
+
+      // Đánh dấu menu đang mở (ưu tiên data-page)
+      const bodyPage = (document.body.dataset.page || '').toLowerCase();
+      const map = {
+        "index":"index.html","index.html":"index.html",
+        "dich-vu":"dich-vu.html","dich-vu.html":"dich-vu.html",
+        "bang-gia":"bang-gia.html","bang-gia.html":"bang-gia.html",
+        "tra-cuu":"tra-cuu.html","tra-cuu.html":"tra-cuu.html",
+        "lien-he":"lien-he.html","lien-he.html":"lien-he.html"
+      };
+      const links = document.querySelectorAll('header nav a');
+      links.forEach(a => a.classList.remove('active'));
+
+      if (map[bodyPage]) {
+        links.forEach(a => { if (a.getAttribute('href') === map[bodyPage]) a.classList.add('active'); });
+      } else {
+        // Fallback theo URL, để bạn chạy cả / và /index.html
+        const normalize = (pathname) => {
+          let p = pathname.replace(/\/+$/,'');
+          if (p === '' || p === '/') return 'index.html';
+          const last = p.split('/').pop();
+          return /\.[a-z0-9]+$/i.test(last) ? last.toLowerCase() : (last.toLowerCase() + '.html');
         };
-        onScroll();
-        document.addEventListener('scroll', onScroll, { passive: true });
-
-        // Reveal on scroll (tôn trọng giảm chuyển động)
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!reduce && 'IntersectionObserver' in window) {
-          const io = new IntersectionObserver((entries) => {
-            entries.forEach((e) => {
-              if (e.isIntersecting) {
-                e.target.classList.add('in-view');
-                io.unobserve(e.target);
-              }
-            });
-          }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
-          document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
-        } else {
-          document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('in-view'));
-        }
-              const toggle = document.querySelector('.nav-toggle');
-        const nav = document.querySelector('header nav');
-        toggle?.addEventListener('click', () => nav.classList.toggle('show'));
-      })();
-    </script>
-  </body>
-  </html>
+        const current = normalize(location.pathname);
+        links.forEach(a => {
+          const hrefPath = new URL(a.getAttribute('href'), location.origin).pathname;
+          if (normalize(hrefPath) === current) a.classList.add('active');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
