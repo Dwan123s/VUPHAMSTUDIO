@@ -364,3 +364,226 @@ footer {
 /* =======================
    END OF LOOKUP PAGE STYLES
    ======================= */
+  /* --- TRANG DỊCH VỤ (NÂNG CẤP) --- */
+
+/* Hero Section */
+.service-hero {
+    background-color: var(--color-background-alt);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+}
+
+.page-subtitle {
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+/* Service List */
+.services-list-section {
+    padding: 80px 0;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+}
+
+.service-card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 50px;
+}
+.service-grid .service-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Đảo chiều layout cho card thứ 2 */
+.service-card:nth-child(even) {
+    grid-template-columns: 1.5fr 1fr;
+}
+.service-card:nth-child(even) .service-card-image {
+    order: 2;
+}
+
+/* Khung ảnh: KHÔNG đặt aspect-ratio trên <img>, đặt trên khung để tránh crop ngoài ý muốn */
+.service-card-image {
+    position: relative;
+    aspect-ratio: auto;                /* mặc định ảnh ngang 4:3 */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background: var(--color-background-alt);
+}
+.service-card-image img {
+    width: 100%;
+    height: 100%;                        /* lấp đầy khung */
+    display: block;
+    object-fit: cover;                   /* đẹp cho ảnh ngang */
+    object-position: top center;         /* hạn chế cắt trán khi vẫn dùng cover */
+}
+
+.service-grid .service-card:nth-child(1) .service-card-image img {
+    object-fit: contain;                 /* hiển thị toàn bộ ảnh, không crop */
+    object-position: center;
+    background: var(--color-background-alt);
+}
+
+.service-card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+}
+
+.service-card-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Process Section */
+.process-section {
+    padding: 80px 0;
+    background-color: var(--color-background-alt);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.process-step {
+    padding: 20px;
+}
+
+.process-number {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    margin: 0 auto 20px auto;
+    box-shadow: 0 5px 15px rgba(93, 156, 236, 0.4);
+}
+
+.process-step h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--color-dark);
+    color: #fff;
+}
+
+.cta-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #bdc3c7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2.2rem;
+    }
+    .service-card, .service-card:nth-child(even) {
+        grid-template-columns: 1fr;
+    }
+    .service-card:nth-child(even) .service-card-image {
+        order: 0;
+    }
+}
+/* Hiệu ứng hover ảnh: sáng viền + zoom nhẹ — CHỈ khi hover/tap vào ảnh */
+.service-card-image {
+    position: relative;
+    transition: box-shadow .28s ease, transform .28s ease;
+    cursor: zoom-in; /* UX tốt hơn */
+}
+
+/* vòng sáng viền */
+.service-card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 0 var(--color-primary), 0 0 0 0 rgba(93,156,236,.18);
+    opacity: 0;
+    transition: box-shadow .28s ease, opacity .28s ease;
+}
+
+.service-card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform .35s cubic-bezier(.22,.61,.36,1);
+    will-change: transform;
+}
+
+/* CHỈ hover vào khung ảnh mới kích hoạt */
+.service-card-image:hover img {
+    transform: scale(1.150);
+}
+.service-card-image:hover::after {
+    box-shadow:
+        inset 0 0 0 2px var(--color-primary),
+        0 0 0 8px rgba(93,156,236,.18);
+    opacity: 1;
+}
+
+/* Mobile/touch: tap giữ để thấy hiệu ứng */
+@media (hover: none) {
+    .service-card-image:active img {
+        transform: scale(1.150);
+    }
+    .service-card-image:active::after {
+        box-shadow:
+            inset 0 0 0 2px var(--color-primary),
+            0 0 0 8px rgba(93,156,236,.18);
+        opacity: 1;
+    }
+}
+
+/* Tôn trọng reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    .service-card-image,
+    .service-card-image::after,
+    .service-card-image img {
+        transition: none !important;
+    }
+}
+/* --- KẾT THÚC TRANG DỊCH VỤ --- */
