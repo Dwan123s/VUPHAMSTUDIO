@@ -388,3 +388,61 @@ footer{
   width: auto;
   display: block;
 }
+/* --- HEADER RESPONSIVE --- */
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.logo-img {
+  height: 32px;
+  max-height: 10vw; /* co lại khi màn hình nhỏ */
+  width: auto;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: var(--color-text, #333);
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #EAECEE;
+    border-radius: 8px;
+    width: 200px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.1);
+    padding: 12px 0;
+    z-index: 1000;
+  }
+  nav a {
+    padding: 10px 16px;
+    display: block;
+  }
+  nav.show {
+    display: flex;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
