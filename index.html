@@ -222,6 +222,9 @@
         } else {
           document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('in-view'));
         }
+              const toggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('header nav');
+        toggle?.addEventListener('click', () => nav.classList.toggle('show'));
       })();
     </script>
   </body>

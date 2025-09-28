@@ -366,6 +366,9 @@
       if (urlCode) {
         codeEl.value = urlCode; clearBtn.style.display = 'block'; search();
       }
+      const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('header nav');
+  toggle?.addEventListener('click', () => nav.classList.toggle('show'));
     })();
   </script>
 </body>

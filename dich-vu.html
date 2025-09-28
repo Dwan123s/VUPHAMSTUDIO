@@ -427,7 +427,9 @@
       }
     })();
   </script>
-
+               const toggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('header nav');
+        toggle?.addEventListener('click', () => nav.classList.toggle('show'));
   <!-- Schema.org (SEO) -->
   <script type="application/ld+json">
   {
@@ -445,6 +447,8 @@
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Tra cứu & Lưu trữ"}}
     ]
   }
+
+  
   </script>
 </body>
 </html>

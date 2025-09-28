@@ -259,6 +259,9 @@
           setStatus('Không thể kết nối API. Vui lòng thử lại sau.', false);
         }
       });
+                   const toggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('header nav');
+        toggle?.addEventListener('click', () => nav.classList.toggle('show'));
     })();
   </script>
 </body>
