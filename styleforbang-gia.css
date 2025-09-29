@@ -681,3 +681,259 @@ html, body { overflow-x: hidden; }
   .hero h1 { font-size: 1.55rem; }
   .banner-cta { width: 100%; text-align: center; }
 }
+/* =========== CONTACT PAGE: chống sát mép trên mobile =========== */
+@media (max-width: 768px){
+  /* Tăng padding ngang mặc định */
+  .container,
+  .main-container{
+    padding-inline: clamp(14px, 4.5vw, 18px) !important;
+  }
+
+  /* Nếu block Liên hệ không bọc .container thì thêm đệm an toàn */
+  body[data-page="lien-he"] section,
+  body[data-page="lien-he"] .contact,
+  body[data-page="lien-he"] .contact-section{
+    padding-inline: clamp(14px, 4.5vw, 18px);
+  }
+
+  /* Riêng lưới form Liên hệ giữ 1 cột và không tràn */
+  .contact-grid{
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  /* H1/H2 trong trang Liên hệ có khoảng cách đẹp hơn */
+  body[data-page="lien-he"] h1,
+  body[data-page="lien-he"] h2{
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}
+/* === (giữ nguyên nội dung cũ của bạn ở trên) === */
+
+/* … toàn bộ phần CSS hiện có … */
+
+/* ========== FLOATING CONTACTS (nổi) ========== */
+.floating-contacts{
+  position: fixed;
+  inset: auto 0 0 0;         /* để con có thể neo trái/phải dễ */
+  pointer-events: none;       /* để không chặn click ngoài nút */
+  z-index: 1300;
+}
+
+/* Cụm bên trái (Zalo + Fanpage) */
+.floating-contacts .fc-left{
+  position: fixed;
+  left: 16px;
+  display: grid;
+  gap: 10px;
+  pointer-events: auto;
+  /* mặc định neo dưới; nếu có sticky-book (mobile) thì cao hơn  */
+  bottom: 90px;
+}
+
+/* Nút tròn */
+.fc-btn{
+  width: 48px; height: 48px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  background: #fff;
+  border: 1px solid var(--color-border, #EAECEE);
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.fc-btn:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.14); }
+
+/* Màu viền theo brand */
+.fc-zalo{ border-color: #8ab7ff; }
+.fc-fb{ border-color: #91b8ff; }
+
+/* Chat bên phải */
+.fc-chat{
+  position: fixed;
+  right: 16px;
+  bottom: 90px;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--brand,#00AEEF), var(--brand-700,#0086AD));
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(0,174,239,.28);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.fc-chat:hover{ transform: translateY(-2px); box-shadow: 0 16px 36px rgba(0,174,239,.35); }
+
+/* Ẩn trên rất hẹp nếu cần (tuỳ chọn) */
+@media (max-width: 360px){
+  .fc-chat{ display:none; }
+}
+
+/* Khi KHÔNG có sticky mobile bar (≥720px) thì hạ gần mép hơn */
+@media (min-width: 720px){
+  .floating-contacts .fc-left{ bottom: 24px; }
+  .fc-chat{ bottom: 24px; }
+}
+
+/* Đảm bảo sticky-book không đè (mobile) */
+.sticky-book{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  display: flex; gap: 10px;
+  padding: 10px 16px; background: #fff; border-top: 1px solid #EAECEE;
+  box-shadow: 0 -6px 24px rgba(13,71,161,.08); z-index: 1200;
+}
+.sticky-book .btn{ flex:1; text-align:center; }
+@media (min-width: 720px){ .sticky-book{ display:none; } }
+
+/* Ghi chú phí (nhỏ) */
+.note-fee{ margin-top:12px;color:#6B7C93;font-size:14px }
+
+/* ====== Floating Contacts (fixed, visible even without JS) ====== */
+.floating-contacts{ position: static; }
+
+.floating-contacts .fc-left{
+  position: fixed;
+  left: max(16px, env(safe-area-inset-left) + 12px);
+  bottom: max(20px, env(safe-area-inset-bottom) + 12px);
+  display: flex; flex-direction: column; gap: 10px;
+  z-index: 4000;
+  animation: fc-slide-left .5s cubic-bezier(.22,.9,.35,1) .05s both;
+}
+
+.floating-contacts .fc-chat{
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right) + 12px);
+  bottom: max(20px, env(safe-area-inset-bottom) + 12px);
+  z-index: 4000;
+  display: inline-block;
+  padding: .7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  background: linear-gradient(90deg,#1877f2,#00aeef);
+  color: #fff; text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,.15);
+  transition: transform .25s ease, box-shadow .25s ease, opacity .35s ease;
+  animation: fc-slide-right .5s cubic-bezier(.22,.9,.35,1) .12s both;
+}
+
+/* Round icon buttons */
+.fc-btn{
+  width:48px;height:48px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.fc-btn svg{width:26px;height:26px}
+.fc-btn:hover{transform:scale(1.1); box-shadow:0 6px 14px rgba(0,0,0,.2)}
+.fc-zalo{border:2px solid #0068ff}
+.fc-fb{border:2px solid #1877f2}
+
+/* On scroll down, slightly minimize */
+.floating-contacts.is-min .fc-left .fc-btn{ transform: scale(.92); }
+.floating-contacts.is-min .fc-chat{ transform: translateY(4px) scale(.96); opacity:.95; }
+
+@keyframes fc-slide-left{ from{transform:translateX(-22px);opacity:0} to{transform:none;opacity:1} }
+@keyframes fc-slide-right{ from{transform:translateX(22px);opacity:0}  to{transform:none;opacity:1} }
+
+@media (max-width:600px){
+  .fc-btn{width:42px;height:42px}
+  .fc-btn svg{width:22px;height:22px}
+  .floating-contacts .fc-chat{font-size:14px;padding:.55rem 1rem}
+}
+
+/* Respect reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .floating-contacts .fc-left,
+  .floating-contacts .fc-chat{ animation:none !important; }
+}
+
+/* Respect reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .floating-contacts .fc-left,
+  .floating-contacts .fc-chat{ animation:none !important; }
+}
+/* Nút kiểu outline (viền) */
+.btn-outline {
+  background-color: transparent; /* Bỏ màu nền */
+  border: 2px solid var(--brand);    /* Thêm viền 2px với màu cyan */
+  color: var(--brand);               /* Đổi màu chữ thành màu cyan */
+  font-weight: 700;                  /* Đảm bảo chữ đậm nét */
+}
+
+/* Hiệu ứng khi di chuột vào */
+.btn-outline:hover {
+  background-color: var(--brand); /* Đổi nền thành màu cyan */
+  color: #fff;                     /* Đổi chữ thành màu trắng */
+  transform: translateY(-2px);    /* Hiệu ứng nhấc lên nhẹ */
+}/* ===== Compare table (fix width, alignment, responsive) ===== */
+.cmp-wrap{
+  overflow:auto;                 /* cho phép cuộn ngang khi hẹp */
+  -webkit-overflow-scrolling:touch;
+  margin-top: 10px;
+}
+
+.cmp{
+  width:100%;                    /* GIÃN HẾT NGANG */
+  border-collapse:collapse;
+  table-layout:fixed;            /* cột chia đều, tránh nhảy kích thước */
+  min-width: 680px;              /* giữ form cột trên mobile, có scroll */
+  background:#fff;
+  border:1px solid var(--color-border, #EAECEE);
+  border-radius:12px;
+  overflow:hidden;               /* bo góc cho table */
+}
+
+.cmp th,
+.cmp td{
+  padding:12px 16px;
+  border-bottom:1px solid var(--color-border, #EAECEE);
+  vertical-align:top;
+  font-size: 15px;
+  color: var(--color-text, #0f172a);
+  word-break: break-word;        /* cho phép xuống dòng câu dài */
+}
+
+/* Hàng đầu */
+.cmp thead th{
+  background: color-mix(in oklab, var(--brand,#00AEEF) 8%, #fff 92%);
+  color:#0b1220;
+  font-weight:800;
+}
+
+/* Cột mô tả (cột 1) rộng hơn, căn trái */
+.cmp th:first-child,
+.cmp td:first-child{
+  width: 38%;
+  text-align:left;
+  font-weight:600;
+  color:#0b1220;
+  white-space: normal;           /* cho phép xuống dòng */
+}
+
+/* Các cột gói căn giữa */
+.cmp th:not(:first-child),
+.cmp td:not(:first-child){
+  text-align:center;
+}
+
+/* Kẻ sọc nhẹ cho dễ đọc */
+.cmp tbody tr:nth-child(odd) td{
+  background:#fafcff;
+}
+
+/* Dấu check & gạch ngang cho đồng nhất */
+.cmp td{ font-variant-numeric: tabular-nums; }
+.cmp td:contains("✔"), .cmp td:contains("—"){ font-weight:700; }
+
+/* Responsive nhỏ hơn 520px: giảm padding, font */
+@media (max-width:520px){
+  .cmp th, .cmp td{ padding:10px 12px; font-size:14px; }
+  .cmp{ min-width: 560px; }
+}

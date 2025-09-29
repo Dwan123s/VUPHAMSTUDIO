@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>VU PHAM STUDIO | Ảnh thẻ, CV, Sự kiện & Kỷ yếu tại Đà Nẵng</title>
   <meta name="description" content="Studio chụp ảnh chuyên nghiệp tại Đà Nẵng: Ảnh thẻ lấy ngay, ảnh CV, sự kiện & kỷ yếu. Retouch tự nhiên, lưu trữ 12 tháng, tra cứu ảnh 24/7.">
   <link rel="stylesheet" href="styleforindex.css"/>
@@ -28,6 +28,10 @@
     "openingHours": "Mo-Su 08:00-20:00"
   }
   </script>
+  <style>
+    /* Emergency inline style to prevent content touching screen edge on tiny devices */
+    .container { padding-left: clamp(16px, 4vw, 32px); padding-right: clamp(16px, 4vw, 32px); }
+  </style>
 </head>
 <body data-page="index">
   <div class="topbar" id="topbar" role="region" aria-label="Khuyến mãi">
@@ -261,6 +265,33 @@
     <div class="copyright">© 2025 VU PHAM STUDIO. All rights reserved.</div>
   </footer>
 
+ <!-- ========== Floating contacts ========== -->
+  <div class="floating-contacts" aria-label="Liên hệ nhanh">
+    <div class="fc-left">
+      <!-- Zalo -->
+      <a class="fc-btn fc-zalo" href="https://zalo.me/0961407024" target="_blank" rel="noopener" aria-label="Zalo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#fff"/>
+          <path fill="#0068ff" d="M24 4C12.96 4 4 12.5 4 23c0 5.2 2.28 9.9 6.02 13.3L8 44l8.2-4.4c2.45 1 5.16 1.6 7.8 1.6 11.04 0 20-8.5 20-19S35.04 4 24 4z"/>
+          <text x="50%" y="62%" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#fff" font-weight="bold">Z</text>
+        </svg>
+      </a>
+      <!-- Fanpage -->
+      <a class="fc-btn fc-fb" href="https://www.facebook.com/vuphamstudio" target="_blank" rel="noopener" aria-label="Fanpage Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#fff"/>
+          <path fill="#1877f2" d="M24 4C12.95 4 4 12.95 4 24c0 9.95 7.33 18.2 16.9 19.8v-14h-5v-6h5v-4.6c0-5 3-7.7 7.5-7.7 2.2 0 4.5.4 4.5.4v5h-2.5c-2.5 0-3.3 1.6-3.3 3.2V24h6l-1 6h-5v14C36.7 42.2 44 33.95 44 24 44 12.95 35.05 4 24 4z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Chat Fanpage bên phải -->
+    <a class="fc-chat" href="https://www.facebook.com/vuphamstudio" target="_blank" rel="noopener" aria-label="Nhắn tin Fanpage">
+      💬 Nhắn tin Fanpage
+    </a>
+  </div>
+  <!-- ========== /Floating contacts ========== -->
+
   <script>
     // Banner dismiss
     const topbar = document.getElementById('topbar');
@@ -278,7 +309,7 @@
     const current = location.pathname.split('/').pop() || 'index.html';
     links.forEach(a => { if ((a.getAttribute('href') || '').endsWith(current)) a.classList.add('active'); else a.classList.remove('active'); });
 
-    // NEW: Scroll reveal animation
+    // Scroll reveal animation
     const revealElements = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -289,6 +320,21 @@
         });
     }, { threshold: 0.1 });
     revealElements.forEach(el => observer.observe(el));
+
+    // No-JS required for Floating Contacts (visible by default).
+    // Optional: shrink when scrolling down.
+    (function(){
+      const fc = document.querySelector('.floating-contacts');
+      if(!fc) return;
+      let lastY = window.scrollY;
+      window.addEventListener('scroll', ()=>{
+        const y = window.scrollY;
+        if (Math.abs(y - lastY) > 24) {
+          if (y > lastY) fc.classList.add('is-min'); else fc.classList.remove('is-min');
+          lastY = y;
+        }
+      }, {passive:true});
+    })();
   </script>
 </body>
 </html>
