@@ -937,3 +937,56 @@ html, body { overflow-x: hidden; }
   .cmp th, .cmp td{ padding:10px 12px; font-size:14px; }
   .cmp{ min-width: 560px; }
 }
+/* === Floating contacts: mobile safe === */
+:root{
+  /* kích thước và khoảng cách để tính khoảng đệm */
+  --fc-size: 56px;           /* chiều cao nút lớn bên phải */
+  --fc-gap: 12px;            /* khoảng cách mép màn hình */
+  --fc-safe: env(safe-area-inset-bottom, 0px);
+}
+
+/* Container 2 cụm nút (trái: Zalo+FB, phải: Chat) */
+.floating-contacts{
+  position: fixed;
+  left: var(--fc-gap);
+  right: var(--fc-gap);
+  bottom: calc(var(--fc-gap) + var(--fc-safe));
+  z-index: 40;
+  display:flex; align-items:center; justify-content:space-between;
+  pointer-events: none; /* tránh chặn scroll; chỉ nút mới bắt sự kiện */
+}
+.floating-contacts .fc-left{display:flex; gap:10px}
+.floating-contacts .fc-btn,
+.floating-contacts .fc-chat{pointer-events:auto}
+
+/* Nút tròn trái */
+.floating-contacts .fc-btn{
+  width:48px;height:48px;border-radius:999px;
+  display:grid;place-items:center;background:#fff;
+  border:1px solid rgba(0,0,0,.08); box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+/* Nút chat phải (dạng pill) */
+.floating-contacts .fc-chat{
+  display:inline-flex; align-items:center; gap:8px;
+  height: var(--fc-size);
+  padding:0 16px; border-radius:999px; font-weight:700;
+  background: #e6f6ff; color:#0b5fae; border:2px solid #9bd9ff;
+  box-shadow:0 10px 24px rgba(0,174,239,.16);
+}
+
+/* --- Quan trọng: chừa khoảng đệm đáy để không bị che --- */
+@media (max-width: 980px){
+  body{
+    /* đủ chỗ cho floating + khoảng cách an toàn */
+    padding-bottom: calc(var(--fc-size) + 28px + var(--fc-safe));
+  }
+  /* riêng phần hero có 2 nút lớn – chừa thêm 1 chút */
+  .hero .hero-actions{ margin-bottom: calc(var(--fc-size) + 20px); }
+}
+
+/* Gọn hơn khi màn rất nhỏ */
+@media (max-width: 380px){
+  :root{ --fc-size: 52px; }
+  .floating-contacts .fc-chat{ padding:0 12px; font-size:.95rem; }
+}
