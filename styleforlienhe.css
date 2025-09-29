@@ -1,37 +1,58 @@
-/* --- THEME & TOKENS --- */
+/* Font */
+@font-face{
+  font-family:'UTM Montserrat';
+  src: url('fonts/UTM-Montserrat.woff2') format('woff2'),
+       url('fonts/UTM-Montserrat.woff') format('woff'),
+       url('fonts/UTM-Montserrat.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tokens gốc */
 :root{
-  --font-heading:'Playfair Display',serif;
-  --font-body:'Montserrat',sans-serif;
+  --brand:#00AEEF;     /* cyan sáng trùng logo */
+  --brand-700:#0086AD; /* cyan đậm hơn cho hover */
+  --ink:#0f172a;
+  --muted:#64748b;
+  --bg:#ffffff;
+  --bg-soft:#F0FBFD;   /* nền rất nhạt, hơi cyan */
+  --border:#D6F3F9;    /* viền nhạt cyan */
 
-  --color-background:#FFFFFF;
-  --color-background-alt:#F0F7FF;
-  --color-text:#34495E;
-  --color-text-muted:#94A3B8;
-  --color-primary:#5D9CEC;
-  --color-primary-strong:#4A89DC;
-  --color-dark:#2C3E50;
-  --color-border:#EAECEE;
+  --radius-xl:22px; --radius-lg:16px; --radius:12px;
 
-  --radius:12px;
-  --shadow-sm:0 2px 10px rgba(0,0,0,.06);
-  --shadow-md:0 8px 24px rgba(13,71,161,.08);
-  --shadow-lg:0 18px 50px rgba(13,71,161,.13);
+  /* Bổ sung shadow theo tên bạn đang dùng */
+  --shadow:0 10px 30px rgba(3,105,161,.08);
+  --shadow-sm:0 2px 10px rgba(3,105,161,.08);
+  --shadow-md:0 8px 24px rgba(3,105,161,.10);
+  --shadow-lg:0 18px 50px rgba(3,105,161,.14);
+
+  --container:clamp(16px, 4vw, 32px);
+  --maxw:1200px;
+
+  /* ===== Alias để đồng bộ các đoạn CSS cũ (không phải sửa HTML) ===== */
+  --color-primary: var(--brand);
+  --color-primary-strong: var(--brand-700);
+  --color-text: var(--ink);
+  --color-text-muted: var(--muted);
+  --color-background: var(--bg);
+  --color-background-alt: var(--bg-soft);
+  --color-border: var(--border);
+  --color-dark:#0b1220;
+
+  /* Alias cho khối .svc- */
+  --svc-primary: var(--color-primary);
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+/* Base */
+*{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{
-  font-family:var(--font-body);
-  background-color:var(--color-background);
-  color:var(--color-text);
-  line-height:1.7;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-}
+body{font-family:'UTM Montserrat', system-ui, Segoe UI, Roboto, sans-serif; color:var(--ink); background:var(--bg); line-height:1.7}
+img{max-width:100%;display:block;height:auto}
+a{color:var(--brand);text-decoration:none}
+.container{max-width:var(--maxw); margin:auto; padding:0 var(--container)}
+.hide{display:none !important}
 
-.main-container{max-width:1200px;margin:0 auto;padding:0 20px}
-
-/* --- TOP BANNER --- */
 .top-banner{
   position:sticky;top:0;z-index:1200;
   background: linear-gradient(90deg,var(--color-primary),var(--color-primary-strong));
@@ -65,33 +86,26 @@ body{
 @keyframes banner-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
 /* --- HEADER & NAV --- */
-header{
-  position:sticky;top:0;z-index:1100;
-  background:rgba(255,255,255,.86);
-  backdrop-filter:saturate(180%) blur(10px);
-  -webkit-backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid rgba(234,236,238,.8);
-  transition:padding .28s ease, box-shadow .28s ease, background .28s ease;
-  padding:16px 0;
+h.site-header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(120%) blur(8px); background:color-mix(in oklab, white 85%, #f0fbfd 15%); border-bottom:1px solid var(--color-border)}
+.header-inner{display:flex; align-items:center; justify-content:space-between; gap:14px; min-height:76px}
+.brand{display:flex; align-items:center; gap:12px}
+.brand img{width:46px; height:46px; border-radius:12px; box-shadow:var(--shadow)}
+.brand-text{display:flex; flex-direction:column}
+.brand-title{font-weight:700; letter-spacing:.3px}
+.brand-sub{font-size:12px; color:#5b93a5}
+.site-nav{display:flex; align-items:center; gap:12px}
+.site-nav a{padding:.65rem .9rem; border-radius:999px; color:var(--ink); font-weight:600}
+.site-nav a.active, .site-nav a:hover{background:color-mix(in oklab, var(--brand) 18%, white 82%); color:var(--brand)}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:.8rem 1.05rem; border-radius:14px; border:1px solid transparent; box-shadow:var(--shadow); font-weight:700}
+.btn-call{background:var(--brand); color:#fff}
+.btn-call:hover{background:var(--brand-700)}
+.nav-toggle{display:none; border:1px solid var(--border); background:#fff; border-radius:12px; padding:.45rem .7rem; font-size:22px}
+@media (max-width: 980px){
+  .nav-toggle{display:inline-flex}
+  .site-nav{position:fixed; left:0; right:0; top:76px; background:#fff; border-bottom:1px solid var(--color-border); display:none; flex-direction:column; padding:14px}
+  .site-nav.show{display:flex}
+  .site-nav a{width:100%}
 }
-header .main-container{display:flex;justify-content:space-between;align-items:center;gap:16px}
-header.is-scrolled{box-shadow:var(--shadow-sm);padding:10px 0;background:rgba(255,255,255,.92)}
-
-.logo{
-  font-family:var(--font-heading);font-weight:700;font-size:1.7rem;color:var(--color-dark);letter-spacing:.5px;
-}
-
-nav a{
-  margin:0 16px;text-decoration:none;color:var(--color-text);
-  font-weight:500;font-size:.96rem;position:relative;padding-bottom:6px;transition:color .25s ease;
-}
-nav a::after{
-  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
-  background:linear-gradient(90deg,var(--color-primary),var(--color-primary-strong));
-  transition:width .35s cubic-bezier(.22,.61,.36,1);
-}
-nav a:hover,nav a.active{color:var(--color-primary)}
-nav a:hover::after,nav a.active::after{width:100%}
 
 /* --- HERO --- */
 .hero{
@@ -370,4 +384,38 @@ footer{
     height: 320px; border-radius: 16px;
   }
 }
-/* PC không đổi gì nên không cần rule ngoài @media */
+
+
+html,body{overflow-x:hidden}
+/* Khóa bề ngang cho tất cả vùng dùng main-container */
+.main-container,
+.container{
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--container);
+}
+
+/* Chặn tràn ngang toàn trang (phòng trường hợp bóng/transform gây tràn) */
+html, body { overflow-x: hidden; }
+
+/* Bản đồ Google Maps */
+.map-wrapper {
+  max-width: 800px;   /* Giới hạn bề ngang tối đa */
+  margin: 0 auto;     /* Căn giữa */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,.12);
+}
+
+.map-wrapper iframe {
+  width: 100%;        /* Luôn full trong khung */
+  height: 360px;      /* Có thể chỉnh lại tuỳ ý: 300, 400… */
+  border: 0;
+}
+
+/* Responsive: trên mobile làm nhỏ chiều cao */
+@media (max-width: 600px) {
+  .map-wrapper iframe {
+    height: 260px;
+  }
+}

@@ -40,42 +40,45 @@
   </div>
 
   <!-- HEADER -->
-  <header>
-    <div class="main-container header-wrap">
-      <div class="logo">
-        <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w80-h80"
-             alt="VU PHAM STUDIO Logo" class="logo-img"/>
-        <span>VU PHAM STUDIO</span>
-      </div>
+  
+<header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="VU PHAM STUDIO">
+        <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w160-h160" alt="Logo VU PHAM STUDIO"/>
+        <div class="brand-text">
+          <span class="brand-title">VU PHAM STUDIO</span>
+          <span class="brand-sub">Chụp ảnh chuyên nghiệp Đà Nẵng</span>
+        </div>
+      </a>
 
-      <button class="nav-toggle" aria-label="Mở menu">☰</button>
-
-      <nav>
-        <!-- KHÔNG để class="active" cố định -->
-        <a href="index.html">Trang chủ</a>
+      <nav class="site-nav" id="siteNav" aria-label="Điều hướng">
+        <a href="index.html" class="active">Trang chủ</a>
         <a href="dich-vu.html">Dịch vụ</a>
         <a href="bang-gia.html">Bảng giá</a>
         <a href="tra-cuu.html">Tra Cứu Ảnh</a>
         <a href="lien-he.html">Liên hệ</a>
+        <a href="tel:0987654321" class="btn btn-call">Gọi: 0987 654 321</a>
       </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Mở menu">☰</button>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-decor"></div>
+
+<section class="hero">
+      <div class="hero-decor" aria-hidden="true"></div>
       <div class="hero-content" data-reveal>
         <h1>Bảng giá dịch vụ</h1>
         <p>Chọn gói phù hợp – nhận ảnh nhanh – hỗ trợ retouch tự nhiên.</p>
         <div class="hero-actions">
-          <a class="btn" href="#pricing">Xem bảng giá</a>
-          <a class="btn btn-outline" href="lien-he.html">Hỏi thêm</a>
+          <a href="bang-gia.html" class="btn">Xem bảng giá</a>
+          <a href="lien-he.html" class="btn btn-dark">Đặt lịch ngay</a>
         </div>
       </div>
-      <a class="scroll-indicator" href="#pricing" aria-label="Cuộn xuống"><span></span></a>
+      <a href="#service-list" class="scroll-indicator" aria-label="Cuộn xuống"><span></span></a>
     </section>
 
+  <main>
     <!-- PRICING -->
     <section class="main-container features-section" id="pricing">
       <h2 class="section-title" data-reveal>Gói dịch vụ</h2>
@@ -84,7 +87,7 @@
         <!-- Basic -->
         <article class="pricing-card" data-reveal>
           <div class="pricing-header"><h3>Gói cơ bản</h3></div>
-          <div class="price">69.000 đ</div>
+          <div class="price">70.000 đ</div>
           <ul class="pricing-features">
             <li>Cân chỉnh ánh sáng</li>
             <li>Cân đối khuôn mặt</li>
@@ -135,9 +138,10 @@
       </p>
     </section>
 
+    
     <!-- COMPARE -->
     <section class="main-container" id="compare-table" aria-labelledby="cmp-title" style="margin-top:44px">
-      <h2 class="section-title" id="cmp-title">So sánh chi tiết</h2>
+      <h2 class="section-title" data-reveal id="cmp-title">So sánh chi tiết</h2>
       <div class="cmp-wrap">
         <table class="cmp">
           <thead>
@@ -161,9 +165,10 @@
         </table>
       </div>
     </section>
+    
 <!-- GALLERY MINI: minh họa 3 ảnh 3x4 -->
 <section class="main-container mini-gallery" aria-label="Mẫu ảnh 3x4">
-  <h2 class="section-title">Mẫu ảnh 3x4</h2>
+  <h2 class="section-title" data-reveal>Mẫu ảnh 3x4</h2>
   <div class="mini-gallery-grid">
     <figure>
       <img src="https://lh3.googleusercontent.com/d/1N0RzxlJORQ6YlkiHcDCZNnXVdTTWCSop=w400-h533" alt="Mẫu ảnh 3x4 số 1" loading="lazy"/>
@@ -179,7 +184,7 @@
 
     <!-- FAQ -->
     <section class="main-container" id="faq" style="margin-top:52px">
-      <h2 class="section-title">Câu hỏi thường gặp</h2>
+      <h2 class="section-title" data-reveal>Câu hỏi thường gặp</h2>
       <details><summary>Thời gian trả ảnh?</summary><p>Ảnh thẻ: 10–15 phút. Gói tiêu chuẩn: 2–6 giờ. VIP/doanh nhân: trong 24 giờ (có tuỳ chọn gấp).</p></details>
       <details><summary>Retouch gồm những gì?</summary><p>Cân sáng, mịn da, xóa mụn nhẹ, cân đối khuôn mặt; VIP có chỉnh tóc/phấn mắt &amp; ghép áo khi cần.</p></details>
       <details><summary>Có gửi file mềm không?</summary><p>Có. Gói cơ bản thêm phí 20k. Gói tiêu chuẩn/VIP bao gồm file chỉnh sửa.</p></details>
@@ -202,7 +207,7 @@
 
     <!-- Sticky CTA (mobile) -->
     <div class="sticky-book" id="sticky-book" role="region" aria-label="Đặt lịch nhanh">
-      <a class="btn" href="lien-he.html">Đặt lịch ngay</a>
+      <a class="btn btn-dark" href="lien-he.html">Đặt lịch ngay</a>
       <a class="btn btn-outline" href="#pricing">Xem gói</a>
     </div>
     <style>

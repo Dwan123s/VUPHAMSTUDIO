@@ -118,26 +118,31 @@
   </div>
 
   <!-- ===== HEADER ===== -->
-  <header>
-    <div class="main-container header-wrap">
-      <div class="logo">
-        <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w80-h80"
-             alt="VU PHAM STUDIO Logo" class="logo-img"/>
-        <span>VU PHAM STUDIO</span>
-      </div>
+  
+<header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="VU PHAM STUDIO">
+        <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w160-h160" alt="Logo VU PHAM STUDIO"/>
+        <div class="brand-text">
+          <span class="brand-title">VU PHAM STUDIO</span>
+          <span class="brand-sub">Chụp ảnh chuyên nghiệp Đà Nẵng</span>
+        </div>
+      </a>
 
-      <button class="nav-toggle" aria-label="Mở menu">☰</button>
-
-      <nav>
-        <!-- KHÔNG để class="active" cố định ở bất kỳ link nào -->
-        <a href="index.html">Trang chủ</a>
+      <nav class="site-nav" id="siteNav" aria-label="Điều hướng">
+        <a href="index.html" class="active">Trang chủ</a>
         <a href="dich-vu.html">Dịch vụ</a>
         <a href="bang-gia.html">Bảng giá</a>
         <a href="tra-cuu.html">Tra Cứu Ảnh</a>
         <a href="lien-he.html">Liên hệ</a>
+        <a href="tel:0987654321" class="btn btn-call">Gọi: 0987 654 321</a>
       </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Mở menu">☰</button>
     </div>
   </header>
+
+
 
   <main>
     <!-- HERO + Ô TRA CỨU -->
