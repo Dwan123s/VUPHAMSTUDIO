@@ -526,4 +526,144 @@ html, body { overflow-x: hidden; }/* =========================
   .hero{ padding: 48px 14px; }
   .hero h1{ font-size: 1.55rem; }
   .banner-cta{ width: 100%; text-align: center; }
+}/* =========== CONTACT PAGE: chống sát mép trên mobile =========== */
+@media (max-width: 768px){
+  /* Tăng padding ngang mặc định */
+  .container,
+  .main-container{
+    padding-inline: clamp(14px, 4.5vw, 18px) !important;
+  }
+
+  /* Nếu block Liên hệ không bọc .container thì thêm đệm an toàn */
+  body[data-page="lien-he"] section,
+  body[data-page="lien-he"] .contact,
+  body[data-page="lien-he"] .contact-section{
+    padding-inline: clamp(14px, 4.5vw, 18px);
+  }
+
+  /* Riêng lưới form Liên hệ giữ 1 cột và không tràn */
+  .contact-grid{
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  /* H1/H2 trong trang Liên hệ có khoảng cách đẹp hơn */
+  body[data-page="lien-he"] h1,
+  body[data-page="lien-he"] h2{
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}
+/* (giữ nguyên toàn bộ CSS hiện có) */
+/* … nội dung gốc ở trên … */
+
+
+/* ========== FLOATING CONTACTS — BẢN ỔN ĐỊNH + SLIDE-IN (NEW) ========== */
+/* Không phụ thuộc container cha, z-index cao, an toàn với overflow hidden các section */
+
+.floating-contacts { position: static; } /* HTML giữ nguyên, không chiếm layout */
+
+/* Cụm icon bên trái */
+.floating-contacts .fc-left{
+  position: fixed;
+  left: 16px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 3000;              /* cao hơn header/top-banner */
+  transform: translateX(-24px);
+  opacity: 0;
+}
+
+/* Nút chat bên phải */
+.floating-contacts .fc-chat{
+  position: fixed;
+  right: 16px;
+  bottom: 20px;
+  z-index: 3000;
+  display: inline-block;
+  padding: .7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  background: linear-gradient(90deg,#1877f2,#00aeef);
+  color: #fff; text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,.15);
+  transition: transform .25s ease, box-shadow .25s ease, opacity .35s ease;
+  transform: translateX(24px);
+  opacity: 0;
+}
+
+/* Nút tròn trái */
+.fc-btn{
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.fc-btn svg{width:26px;height:26px}
+.fc-btn:hover{transform:scale(1.1); box-shadow:0 6px 14px rgba(0,0,0,.2)}
+.fc-zalo{border:2px solid #0068ff}
+.fc-fb{border:2px solid #1877f2}
+
+/* Mount = kích hoạt slide-in */
+.floating-contacts.is-mounted .fc-left{
+  animation: fc-slide-left .5s cubic-bezier(.22,.9,.35,1) .05s both;
+}
+.floating-contacts.is-mounted .fc-chat{
+  animation: fc-slide-right .5s cubic-bezier(.22,.9,.35,1) .12s both;
+}
+
+@keyframes fc-slide-left{
+  from{ transform: translateX(-24px); opacity: 0; }
+  to  { transform: translateX(0);     opacity: 1; }
+}
+@keyframes fc-slide-right{
+  from{ transform: translateX(24px); opacity: 0; }
+  to  { transform: translateX(0);    opacity: 1; }
+}
+
+/* Khi người dùng cuộn xuống xa: thu nhỏ để đỡ che nội dung */
+.floating-contacts.is-min .fc-left .fc-btn{ transform: scale(.92); }
+.floating-contacts.is-min .fc-chat{ transform: translateY(4px) scale(.96); opacity:.9; }
+
+/* Mobile: thu nhỏ */
+@media (max-width:600px){
+  .fc-btn{width:42px;height:42px}
+  .fc-btn svg{width:22px;height:22px}
+  .floating-contacts .fc-chat{font-size:14px;padding:.55rem 1rem}
+}
+
+/* Tôn trọng người dùng giảm chuyển động */
+@media (prefers-reduced-motion: reduce){
+  .floating-contacts .fc-left,
+  .floating-contacts .fc-chat{
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* =========== CONTACT PAGE: chống sát mép trên mobile (giữ nguyên block gốc) =========== */
+/* … phần mobile override và contact page padding bạn đã có … */
+/* Respect reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .floating-contacts .fc-left,
+  .floating-contacts .fc-chat{ animation:none !important; }
+}
+/* Nút kiểu outline (viền) */
+.btn-outline {
+  background-color: transparent; /* Bỏ màu nền */
+  border: 2px solid var(--brand);    /* Thêm viền 2px với màu cyan */
+  color: var(--brand);               /* Đổi màu chữ thành màu cyan */
+  font-weight: 700;                  /* Đảm bảo chữ đậm nét */
+}
+
+/* Hiệu ứng khi di chuột vào */
+.btn-outline:hover {
+  background-color: var(--brand); /* Đổi nền thành màu cyan */
+  color: #fff;                     /* Đổi chữ thành màu trắng */
+  transform: translateY(-2px);    /* Hiệu ứng nhấc lên nhẹ */
 }

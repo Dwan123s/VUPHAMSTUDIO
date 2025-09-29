@@ -40,8 +40,7 @@
   </div>
 
   <!-- HEADER -->
-  
-<header class="site-header">
+  <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="VU PHAM STUDIO">
         <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w160-h160" alt="Logo VU PHAM STUDIO"/>
@@ -52,9 +51,9 @@
       </a>
 
       <nav class="site-nav" id="siteNav" aria-label="Điều hướng">
-        <a href="index.html" class="active">Trang chủ</a>
+        <a href="index.html">Trang chủ</a>
         <a href="dich-vu.html">Dịch vụ</a>
-        <a href="bang-gia.html">Bảng giá</a>
+        <a href="bang-gia.html" class="active">Bảng giá</a>
         <a href="tra-cuu.html">Tra Cứu Ảnh</a>
         <a href="lien-he.html">Liên hệ</a>
         <a href="tel:0987654321" class="btn btn-call">Gọi: 0987 654 321</a>
@@ -64,19 +63,19 @@
     </div>
   </header>
 
-
-<section class="hero">
-      <div class="hero-decor" aria-hidden="true"></div>
-      <div class="hero-content" data-reveal>
-        <h1>Bảng giá dịch vụ</h1>
-        <p>Chọn gói phù hợp – nhận ảnh nhanh – hỗ trợ retouch tự nhiên.</p>
-        <div class="hero-actions">
-          <a href="bang-gia.html" class="btn">Xem bảng giá</a>
-          <a href="lien-he.html" class="btn btn-dark">Đặt lịch ngay</a>
-        </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-decor" aria-hidden="true"></div>
+    <div class="hero-content" data-reveal>
+      <h1>Bảng giá dịch vụ</h1>
+      <p>Chọn gói phù hợp – nhận ảnh nhanh – hỗ trợ retouch tự nhiên.</p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn btn-outline">Xem bảng giá</a>
+        <a href="lien-he.html" class="btn btn-dark">Đặt lịch ngay</a>
       </div>
-      <a href="#service-list" class="scroll-indicator" aria-label="Cuộn xuống"><span></span></a>
-    </section>
+    </div>
+    <a href="#service-list" class="scroll-indicator" aria-label="Cuộn xuống"><span></span></a>
+  </section>
 
   <main>
     <!-- PRICING -->
@@ -133,12 +132,11 @@
         </article>
       </div>
 
-      <p id="note-fee" style="margin-top:12px;color:#6B7C93;font-size:14px">
+      <p id="note-fee" class="note-fee">
         Lưu ý: Gửi file mềm +20.000đ.
       </p>
     </section>
 
-    
     <!-- COMPARE -->
     <section class="main-container" id="compare-table" aria-labelledby="cmp-title" style="margin-top:44px">
       <h2 class="section-title" data-reveal id="cmp-title">So sánh chi tiết</h2>
@@ -165,22 +163,16 @@
         </table>
       </div>
     </section>
-    
-<!-- GALLERY MINI: minh họa 3 ảnh 3x4 -->
-<section class="main-container mini-gallery" aria-label="Mẫu ảnh 3x4">
-  <h2 class="section-title" data-reveal>Mẫu ảnh 3x4</h2>
-  <div class="mini-gallery-grid">
-    <figure>
-      <img src="https://lh3.googleusercontent.com/d/1N0RzxlJORQ6YlkiHcDCZNnXVdTTWCSop=w400-h533" alt="Mẫu ảnh 3x4 số 1" loading="lazy"/>
-    </figure>
-    <figure>
-      <img src="https://lh3.googleusercontent.com/d/1N0RzxlJORQ6YlkiHcDCZNnXVdTTWCSop=w400-h533" alt="Mẫu ảnh 3x4 số 2" loading="lazy"/>
-    </figure>
-    <figure>
-      <img src="https://lh3.googleusercontent.com/d/1N0RzxlJORQ6YlkiHcDCZNnXVdTTWCSop=w400-h533" alt="Mẫu ảnh 3x4 số 3" loading="lazy"/>
-    </figure>
-  </div>
-</section>
+
+    <!-- GALLERY MINI -->
+    <section class="main-container mini-gallery" aria-label="Mẫu ảnh 3x4">
+      <h2 class="section-title" data-reveal>Mẫu ảnh 3x4</h2>
+      <div class="mini-gallery-grid">
+        <figure><img src="https://lh3.googleusercontent.com/d/1N0RzxlJORQ6YlkiHcDCZNnXVdTTWCSop=w400-h533" alt="Mẫu ảnh 3x4 số 1" loading="lazy"/></figure>
+        <figure><img src="https://lh3.googleusercontent.com/d/1N0RzxlJORQ6YlkiHcDCZNnXVdTTWCSop=w400-h533" alt="Mẫu ảnh 3x4 số 2" loading="lazy"/></figure>
+        <figure><img src="https://lh3.googleusercontent.com/d/1N0RzxlJORQ6YlkiHcDCZNnXVdTTWCSop=w400-h533" alt="Mẫu ảnh 3x4 số 3" loading="lazy"/></figure>
+      </div>
+    </section>
 
     <!-- FAQ -->
     <section class="main-container" id="faq" style="margin-top:52px">
@@ -190,35 +182,11 @@
       <details><summary>Có gửi file mềm không?</summary><p>Có. Gói cơ bản thêm phí 20k. Gói tiêu chuẩn/VIP bao gồm file chỉnh sửa.</p></details>
     </section>
 
-    <!-- Inline style nhỏ cho bảng & FAQ (tuỳ chọn) -->
-    <style>
-      #faq details{border:1px solid #EAECEE;border-radius:12px;padding:14px 16px;margin-bottom:10px;background:#fff}
-      #faq summary{cursor:pointer;font-weight:600}
-      #faq p{margin:10px 0 0}
-
-      .cmp-wrap{overflow:auto}
-      .cmp{width:100%;border-collapse:collapse;background:#fff;border:1px solid #EAECEE;border-radius:12px;overflow:hidden}
-      .cmp th,.cmp td{padding:12px 14px;border-bottom:1px solid #EEF2F7;text-align:left}
-      .cmp thead th{background:#F8FAFF;font-weight:700}
-      .cmp tbody tr:last-child td{border-bottom:0}
-      .cmp td:nth-child(n+2){text-align:center}
-      @media (max-width:720px){ .cmp th,.cmp td{padding:10px} }
-    </style>
-
     <!-- Sticky CTA (mobile) -->
     <div class="sticky-book" id="sticky-book" role="region" aria-label="Đặt lịch nhanh">
       <a class="btn btn-dark" href="lien-he.html">Đặt lịch ngay</a>
       <a class="btn btn-outline" href="#pricing">Xem gói</a>
     </div>
-    <style>
-      .sticky-book{
-        position:fixed;left:0;right:0;bottom:0;display:flex;gap:10px;
-        padding:10px 16px;background:#fff;border-top:1px solid #EAECEE;
-        box-shadow:0 -6px 24px rgba(13,71,161,.08);z-index:1200
-      }
-      .sticky-book .btn{flex:1;text-align:center}
-      @media (min-width: 720px){.sticky-book{display:none}}
-    </style>
   </main>
 
   <!-- FOOTER -->
@@ -244,6 +212,34 @@
       <div class="footer-bottom">© 2025 VU PHAM Studio.</div>
     </div>
   </footer>
+
+  <!-- ========== Floating contacts ========== -->
+  <div class="floating-contacts" aria-label="Liên hệ nhanh">
+    <div class="fc-left">
+      <!-- Zalo -->
+      <a class="fc-btn fc-zalo" href="https://zalo.me/0961407024" target="_blank" rel="noopener" aria-label="Zalo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#fff"/>
+          <path fill="#0068ff" d="M24 4C12.96 4 4 12.5 4 23c0 5.2 2.28 9.9 6.02 13.3L8 44l8.2-4.4c2.45 1 5.16 1.6 7.8 1.6 11.04 0 20-8.5 20-19S35.04 4 24 4z"/>
+          <text x="50%" y="62%" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#fff" font-weight="bold">Z</text>
+        </svg>
+      </a>
+      <!-- Fanpage -->
+      <a class="fc-btn fc-fb" href="https://www.facebook.com/vuphamstudio" target="_blank" rel="noopener" aria-label="Fanpage Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#fff"/>
+          <path fill="#1877f2" d="M24 4C12.95 4 4 12.95 4 24c0 9.95 7.33 18.2 16.9 19.8v-14h-5v-6h5v-4.6c0-5 3-7.7 7.5-7.7 2.2 0 4.5.4 4.5.4v5h-2.5c-2.5 0-3.3 1.6-3.3 3.2V24h6l-1 6h-5v14C36.7 42.2 44 33.95 44 24 44 12.95 35.05 4 24 4z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Chat Fanpage bên phải -->
+    <a class="fc-chat" href="https://www.facebook.com/vuphamstudio" target="_blank" rel="noopener" aria-label="Nhắn tin Fanpage">
+      💬 Nhắn tin Fanpage
+    </a>
+  </div>
+  <!-- ========== /Floating contacts ========== -->
+  <!-- ========== /Floating contacts ========== -->
 
   <!-- JS: banner + header blur + reveal + mobile nav + active menu -->
   <script>
@@ -275,7 +271,7 @@
       const nav = document.querySelector('header nav');
       toggle?.addEventListener('click', () => nav.classList.toggle('show'));
 
-      // Active nav (ưu tiên data-page, fallback theo URL)
+      // Active nav
       (function activateNav(){
         const bodyPage = (document.body.dataset.page || '').toLowerCase();
         const map = {
@@ -287,7 +283,6 @@
         };
         const links = document.querySelectorAll('header nav a');
         links.forEach(a=>a.classList.remove('active'));
-
         if (map[bodyPage]) {
           links.forEach(a=>{ if (a.getAttribute('href') === map[bodyPage]) a.classList.add('active'); });
         } else {
