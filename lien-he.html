@@ -25,7 +25,8 @@
     </div>
   </div>
 
-  <header class="site-header">
+  <!-- HEADER -->
+ <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="VU PHAM STUDIO">
         <img src="https://lh3.googleusercontent.com/d/1hfQPNAvlRw2xE-Lik5O-1atWRRjRqc_u=w160-h160" alt="Logo VU PHAM STUDIO"/>
@@ -36,8 +37,8 @@
       </a>
 
       <nav class="site-nav" id="siteNav" aria-label="Điều hướng">
-        <a href="index.html" class="active">Trang chủ</a>
-        <a href="dich-vu.html">Dịch vụ</a>
+        <a href="index.html">Trang chủ</a>
+        <a href="dich-vu.html" class="active">Dịch vụ</a>
         <a href="bang-gia.html">Bảng giá</a>
         <a href="tra-cuu.html">Tra Cứu Ảnh</a>
         <a href="lien-he.html">Liên hệ</a>
@@ -47,9 +48,39 @@
       <button class="nav-toggle" id="navToggle" aria-label="Mở menu">☰</button>
     </div>
   </header>
+  <main>
 
   <!-- HERO -->
   <section class="hero">
+     <div class="hero-decor" aria-hidden="true"></div>
+
+  <!-- Floating icons (parallax) -->
+ <!-- Floating icons (parallax photography set) -->
+<div class="hero-icons" aria-hidden="true">
+  <!-- Máy ảnh -->
+  <svg class="icon cam" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M20 6h-3.17l-1.41-1.41c-.38-.38-.89-.59-1.42-.59H9.83c-.53 0-1.04.21-1.42.59L7 6H4c-1.1 0-2 .9-2 2v10c0 
+1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2Zm-8 12c-2.21 0-4-1.79-4-4s1.79-4 
+4-4 4 1.79 4 4-1.79 4-4 4Z"/>
+  </svg>
+
+  <!-- Lens -->
+  <svg class="icon lens" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8" stroke="currentColor" fill="none" stroke-width="2"/>
+    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+  </svg>
+
+
+
+
+
+  <!-- Photo frame -->
+  <svg class="icon frame" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <rect x="4" y="4" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"/>
+    <circle cx="9" cy="9" r="2" fill="currentColor"/>
+    <path fill="currentColor" d="M21 20l-6-7-4 5-3-4-5 6"/>
+  </svg>
+
     <div class="hero-content" data-reveal>
       <h1>Liên hệ & Đặt lịch</h1>
       <p>Gửi yêu cầu – chúng tôi phản hồi nhanh, tư vấn chọn gói phù hợp.</p>
@@ -127,6 +158,39 @@
     </p>
   </section>
   </main>
+ <footer class="site-footer">
+    <div class="container foot-grid">
+      <div>
+        <h4>VU PHAM STUDIO</h4>
+       <p><strong>VU PHAM STUDIO</strong> là một trong những đơn vị quay chụp chuyên nghiệp tại Đà Nẵng.</p>
+          <p><strong>Chúng tôi cung cấp đa dạng dịch vụ:</strong></p>
+          <p>- Chụp ảnh profile doanh nhân – doanh nghiệp.</p>
+          <p>- Chụp ảnh thẻ hộ chiếu, visa</p>
+          <p>- Chụp ảnh profile – CV cá nhân.</p>
+          <p>- In ảnh chất lượng cao.</p>
+          <p><strong>Với phương châm Uy tín – Trải nghiệm – Tận tâm, VU PHAM STUDIO luôn nỗ lực mang đến cho khách hàng những sản phẩm hình ảnh đẹp, sắc nét và chuyên nghiệp nhất.</strong></p>
+      </div>
+      <div>
+        <h4>Liên kết</h4>
+        <ul>
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="dich-vu.html">Dịch vụ</a></li>
+          <li><a href="tra-cuu.html">Tra cứu ảnh</a></li>
+          <li><a href="lien-he.html">Liên hệ</a></li>
+          <li><a href="bang-gia.html">Bảng giá</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <ul>
+          <li>11 Lê Thiện Trị, Ngũ Hành Sơn, Đà Nẵng</li>
+          <li><a href="mailto:studiovupham@gmail.com">studiovupham@gmail.com</a></li>
+          <li><a href="tel:0987654321">0987 654 321</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2025 VU PHAM STUDIO. All rights reserved.</div>
+  </footer>
 
  <!-- ========== Floating contacts ========== -->
   <div class="floating-contacts" aria-label="Liên hệ nhanh">
@@ -154,6 +218,7 @@
     </a>
   </div>
   <!-- ========== /Floating contacts ========== -->
+   
   <!-- JS -->
   <script>
     const BOOK_API  = "https://script.google.com/macros/s/AKfycby9zaVW-Ue25t3U4aybFBbuZDAh7qCteS9uDVb52_2KsOYLvOiSMbc9yYexGmufRwtZrw/exec";

@@ -67,8 +67,9 @@ a{color:var(--brand);text-decoration:none}
 .topbar .topbar-close{margin-left:auto; background:transparent; border:0; color:#d7f6ff; font-size:18px}
 @media (max-width: 900px){ .topbar .topbar-close{display:block} }
 
+
 /* Header */
-.site-header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(120%) blur(8px); background:color-mix(in oklab, white 85%, #f0fbfd 15%); border-bottom:1px solid var(--color-border)}
+.site-header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(120%) blur(8px); background:color-mix(in oklab, white 85%, #f0fbfd 15%); border-bottom:1px solid var(--border)}
 .header-inner{display:flex; align-items:center; justify-content:space-between; gap:14px; min-height:76px}
 .brand{display:flex; align-items:center; gap:12px}
 .brand img{width:46px; height:46px; border-radius:12px; box-shadow:var(--shadow)}
@@ -76,15 +77,15 @@ a{color:var(--brand);text-decoration:none}
 .brand-title{font-weight:700; letter-spacing:.3px}
 .brand-sub{font-size:12px; color:#5b93a5}
 .site-nav{display:flex; align-items:center; gap:12px}
-.site-nav a{padding:.65rem .9rem; border-radius:999px; color:var(--ink); font-weight:600}
-.site-nav a.active, .site-nav a:hover{background:color-mix(in oklab, var(--brand) 18%, white 82%); color:var(--brand)}
-.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:.8rem 1.05rem; border-radius:14px; border:1px solid transparent; box-shadow:var(--shadow); font-weight:700}
+.site-nav a{padding:.65rem .9rem; border-radius:999px; color:#0f172a; font-weight:600; transition: color .2s ease, background-color .2s ease;}
+.site-nav a.active, .site-nav a:hover{background:color-mix(in oklab, var(--brand) 12%, white 88%); color:var(--brand)}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:.8rem 1.05rem; border-radius:14px; border:1px solid transparent; box-shadow:var(--shadow); font-weight:700; transition: background-color .2s ease, border-color .2s ease, transform .2s ease;}
 .btn-call{background:var(--brand); color:#fff}
-.btn-call:hover{background:var(--brand-700)}
-.nav-toggle{display:none; border:1px solid var(--border); background:#fff; border-radius:12px; padding:.45rem .7rem; font-size:22px}
+.btn-call:hover{background:var(--brand-700); transform: translateY(-2px);}
+.nav-toggle{display:none; border:1px solid var(--border); background:#fff; border-radius:12px; padding:.45rem .7rem; font-size:22px; cursor: pointer;}
 @media (max-width: 980px){
   .nav-toggle{display:inline-flex}
-  .site-nav{position:fixed; left:auto; right:0; top:76px; background:#fff; border-bottom:1px solid var(--color-border); display:none; flex-direction:column; padding:14px}
+  .site-nav{position:fixed; left:0; right:0; top:76px; background:#fff; border-bottom:1px solid var(--border); display:none; flex-direction:column; padding:14px}
   .site-nav.show{display:flex}
   .site-nav a{width:100%}
 }
@@ -591,7 +592,7 @@ html, body { overflow-x: hidden; }
   /* Nav (đúng .site-nav bạn dùng) */
   .nav-toggle { display: inline-flex; }
   .site-nav{
-    position: fixed; left: 0; right: 0; top: 64px;
+    position: fixed; left: auto; right: 0; top: 64px;
     background: #fff; border-bottom: 1px solid var(--color-border);
     display: none; flex-direction: column; padding: 10px;
     box-shadow: 0 12px 28px rgba(0,0,0,.08); z-index: 1000;
@@ -729,7 +730,7 @@ html, body { overflow-x: hidden; }
   gap: 10px;
   pointer-events: auto;
   /* mặc định neo dưới; nếu có sticky-book (mobile) thì cao hơn  */
-  bottom: 90px;
+  bottom: 20px;
 }
 
 /* Nút tròn */
@@ -799,7 +800,7 @@ html, body { overflow-x: hidden; }
 .floating-contacts .fc-left{
   position: fixed;
   left: max(16px, env(safe-area-inset-left) + 12px);
-  bottom: max(20px, env(safe-area-inset-bottom) + 12px);
+  bottom: max(80px, env(safe-area-inset-bottom) + 12px);
   display: flex; flex-direction: column; gap: 10px;
   z-index: 4000;
   animation: fc-slide-left .5s cubic-bezier(.22,.9,.35,1) .05s both;
@@ -808,7 +809,7 @@ html, body { overflow-x: hidden; }
 .floating-contacts .fc-chat{
   position: fixed;
   right: max(16px, env(safe-area-inset-right) + 12px);
-  bottom: max(20px, env(safe-area-inset-bottom) + 12px);
+  bottom: max(80px, env(safe-area-inset-bottom) + 12px);
   z-index: 4000;
   display: inline-block;
   padding: .7rem 1.2rem;
@@ -937,56 +938,93 @@ html, body { overflow-x: hidden; }
   .cmp th, .cmp td{ padding:10px 12px; font-size:14px; }
   .cmp{ min-width: 560px; }
 }
-/* === Floating contacts: mobile safe === */
-:root{
-  /* kích thước và khoảng cách để tính khoảng đệm */
-  --fc-size: 56px;           /* chiều cao nút lớn bên phải */
-  --fc-gap: 12px;            /* khoảng cách mép màn hình */
-  --fc-safe: env(safe-area-inset-bottom, 0px);
+
+/* đảm bảo header nổi trên hero */
+.site-header{
+  position: sticky; top: 0; z-index: 1000;
+  backdrop-filter: saturate(120%) blur(8px);
+  background: color-mix(in oklab, #fff 88%, var(--bg-soft, #f0fbfd) 12%);
+  border-bottom: 1px solid var(--border, #e6eef4);
 }
 
-/* Container 2 cụm nút (trái: Zalo+FB, phải: Chat) */
-.floating-contacts{
-  position: fixed;
-  left: var(--fc-gap);
-  right: var(--fc-gap);
-  bottom: calc(var(--fc-gap) + var(--fc-safe));
-  z-index: 40;
-  display:flex; align-items:center; justify-content:space-between;
-  pointer-events: none; /* tránh chặn scroll; chỉ nút mới bắt sự kiện */
-}
-.floating-contacts .fc-left{display:flex; gap:10px}
-.floating-contacts .fc-btn,
-.floating-contacts .fc-chat{pointer-events:auto}
-
-/* Nút tròn trái */
-.floating-contacts .fc-btn{
-  width:48px;height:48px;border-radius:999px;
-  display:grid;place-items:center;background:#fff;
-  border:1px solid rgba(0,0,0,.08); box-shadow:0 8px 20px rgba(0,0,0,.12);
-}
-
-/* Nút chat phải (dạng pill) */
-.floating-contacts .fc-chat{
-  display:inline-flex; align-items:center; gap:8px;
-  height: var(--fc-size);
-  padding:0 16px; border-radius:999px; font-weight:700;
-  background: #e6f6ff; color:#0b5fae; border:2px solid #9bd9ff;
-  box-shadow:0 10px 24px rgba(0,174,239,.16);
-}
-
-/* --- Quan trọng: chừa khoảng đệm đáy để không bị che --- */
-@media (max-width: 980px){
-  body{
-    /* đủ chỗ cho floating + khoảng cách an toàn */
-    padding-bottom: calc(var(--fc-size) + 28px + var(--fc-safe));
+/* —— Desktop ≥981px: nav luôn hàng ngang, nền trong suốt —— */
+@media (min-width: 981px){
+  .site-nav{
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 12px;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    width: auto;
   }
-  /* riêng phần hero có 2 nút lớn – chừa thêm 1 chút */
-  .hero .hero-actions{ margin-bottom: calc(var(--fc-size) + 20px); }
+  .site-nav a{ width: auto !important; }
 }
 
-/* Gọn hơn khi màn rất nhỏ */
-@media (max-width: 380px){
-  :root{ --fc-size: 52px; }
-  .floating-contacts .fc-chat{ padding:0 12px; font-size:.95rem; }
+/* —— Mobile ≤980px: nav là panel nổi, ẩn mặc định —— */
+@media (max-width: 980px){
+  .nav-toggle{ display: inline-flex; }
+  .site-nav{
+    position: fixed;
+    right: 12px; left: 10px;
+    top: calc(64px);           /* = chiều cao header + 12px */
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid var(--border, #e6eef4);
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: var(--shadow, 0 10px 30px rgba(3,105,161,.08));
+    max-width: 360px;
+    margin-left: auto;                 /* đẩy sát bên phải */
+  }
+  body.nav-open .site-nav{ display: flex; }
+  .site-nav a{ width: 100%; }
+}
+
+/* style active link thống nhất */
+.site-nav a.active, .site-nav a:hover{
+  background: color-mix(in oklab, var(--brand, #00AEEF) 12%, #fff 88%);
+  color: var(--brand, #00AEEF);
+  border-radius: 999px;
+}
+.hero-icons{
+  position:absolute; inset:0; z-index:-1;
+  pointer-events:none;
+}
+
+/* Hero floating icons nhiều loại */
+.hero-icons .icon { 
+  position: absolute;
+  --size: 100px;           /* mặc định */
+  width: var(--size);
+  height: var(--size);
+  color: rgba(0,174,239,.18);
+  opacity: 0.7;
+  animation: floatScale 12s ease-in-out infinite alternate;
+  transition: width .3s ease, height .3s ease;
+}
+
+/* Vị trí & size riêng */
+.hero-icons .cam   { top:15%; left:10%;  --size: 80px; animation-delay:0s; }
+.hero-icons .lens  { top:25%; right:20%; --size: 70px; animation-delay:2s; }
+.hero-icons .flash { bottom:18%; left:15%; --size: 80px; animation-delay:4s; }
+.hero-icons .tripod{ top:35%; left:45%; --size: 50px; animation-delay:6s; }
+.hero-icons .card  { bottom:25%; right:12%; --size: 60px; animation-delay:8s; }
+.hero-icons .frame { top:12%; right:35%; --size: 45px; animation-delay:10s; }
+
+/* Bay + đổi kích cỡ */
+@keyframes floatScale {
+  0%   { transform: translateY(0) scale(0.9) rotate(0deg); }
+  50%  { transform: translateY(-20px) scale(1.15) rotate(4deg); }
+  100% { transform: translateY(20px) scale(1.5) rotate(-4deg); }
+}
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 90px; /* = chiều cao của floating bar */
+  }
 }

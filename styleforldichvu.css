@@ -921,4 +921,90 @@ html, body { overflow-x: hidden; }/* ===========================================
   background-color: var(--brand); /* Đổi nền thành màu cyan */
   color: #fff;                     /* Đổi chữ thành màu trắng */
   transform: translateY(-2px);    /* Hiệu ứng nhấc lên nhẹ */
+}/* ==== HEADER FIX: desktop nav vs mobile drawer ==== */
+
+/* đảm bảo header nổi trên hero */
+.site-header{
+  position: sticky; top: 0; z-index: 1000;
+  backdrop-filter: saturate(120%) blur(8px);
+  background: color-mix(in oklab, #fff 88%, var(--bg-soft, #f0fbfd) 12%);
+  border-bottom: 1px solid var(--border, #e6eef4);
+}
+
+/* —— Desktop ≥981px: nav luôn hàng ngang, nền trong suốt —— */
+@media (min-width: 981px){
+  .site-nav{
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 12px;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    width: auto;
+  }
+  .site-nav a{ width: auto !important; }
+}
+
+/* —— Mobile ≤980px: nav là panel nổi, ẩn mặc định —— */
+@media (max-width: 980px){
+  .nav-toggle{ display: inline-flex; }
+  .site-nav{
+    position: fixed;
+    right: 12px; left: 10px;
+    top: calc(64px);           /* = chiều cao header + 12px */
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid var(--border, #e6eef4);
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: var(--shadow, 0 10px 30px rgba(3,105,161,.08));
+    max-width: 360px;
+    margin-left: auto;                 /* đẩy sát bên phải */
+  }
+  body.nav-open .site-nav{ display: flex; }
+  .site-nav a{ width: 100%; }
+}
+
+/* style active link thống nhất */
+.site-nav a.active, .site-nav a:hover{
+  background: color-mix(in oklab, var(--brand, #00AEEF) 12%, #fff 88%);
+  color: var(--brand, #00AEEF);
+  border-radius: 999px;
+}
+/* Hero floating icons */
+.hero-icons{
+  position:absolute; inset:0; z-index:-1;
+  pointer-events:none;
+}
+
+/* Hero floating icons nhiều loại */
+.hero-icons .icon { 
+  position: absolute;
+  --size: 100px;           /* mặc định */
+  width: var(--size);
+  height: var(--size);
+  color: rgba(0,174,239,.18);
+  opacity: 0.7;
+  animation: floatScale 12s ease-in-out infinite alternate;
+  transition: width .3s ease, height .3s ease;
+}
+
+/* Vị trí & size riêng */
+.hero-icons .cam   { top:15%; left:10%;  --size: 80px; animation-delay:0s; }
+.hero-icons .lens  { top:25%; right:20%; --size: 70px; animation-delay:2s; }
+.hero-icons .flash { bottom:18%; left:15%; --size: 80px; animation-delay:4s; }
+.hero-icons .tripod{ top:35%; left:45%; --size: 50px; animation-delay:6s; }
+.hero-icons .card  { bottom:25%; right:12%; --size: 60px; animation-delay:8s; }
+.hero-icons .frame { top:12%; right:35%; --size: 45px; animation-delay:10s; }
+
+/* Bay + đổi kích cỡ */
+@keyframes floatScale {
+  0%   { transform: translateY(0) scale(0.9) rotate(0deg); }
+  50%  { transform: translateY(-20px) scale(1.15) rotate(4deg); }
+  100% { transform: translateY(20px) scale(1.5) rotate(-4deg); }
 }
