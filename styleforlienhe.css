@@ -229,20 +229,67 @@ footer{
 .pricing-features li{padding:10px 0;border-bottom:1px solid var(--color-border)}
 .pricing-features li:last-child{border-bottom:none}
 
-.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:start}
-.contact-details h3,.contact-form h3{font-family:var(--font-heading);font-size:1.6rem;margin-bottom:18px;color:var(--color-dark)}
-.contact-item{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-.contact-item svg{width:24px;height:24px;color:var(--color-primary);flex-shrink:0}
-.contact-item span,.contact-item a{text-decoration:none;color:var(--color-text);font-size:1rem;transition:color .25s ease}
-.contact-item a:hover{color:var(--color-primary)}
-.contact-form form{display:flex;flex-direction:column;gap:16px}
-.contact-form input,.contact-form textarea,.contact-form select{
-  width:100%;padding:14px;border:1px solid var(--color-border);border-radius:10px;font-family:var(--font-body);font-size:1rem;transition:border-color .25s ease, box-shadow .25s ease
+/* --- GIỮ NGUYÊN PHẦN TRÊN --- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: start; }
+.contact-details h3, .contact-form h3 { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 18px; color: var(--color-dark); }
+.contact-item { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.contact-item svg { width: 24px; height: 24px; color: var(--color-primary); flex-shrink: 0; }
+.contact-item span, .contact-item a { text-decoration: none; color: var(--color-text); font-size: 1rem; transition: color .25s ease; }
+.contact-item a:hover { color: var(--color-primary); }
+
+/* --- PHẦN CHỈNH SỬA LAYOUT FORM --- */
+
+/* Chuyển sang Grid để chia cột mà không cần sửa HTML */
+.contact-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia 2 cột đều nhau */
+    gap: 16px;
 }
-.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(93,156,236,.18)}
-.contact-form button{align-self:flex-start;cursor:pointer}
-.map-section{padding-top:0}
-.map-section iframe{border-radius:10px;box-shadow:var(--shadow-md)}
+
+/* Các ô input, textarea, select giữ nguyên style cũ của bạn */
+.contact-form input, .contact-form textarea, .contact-form select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color .25s ease, box-shadow .25s ease;
+    box-sizing: border-box; /* Quan trọng: để padding không làm vỡ khung */
+}
+
+/* Các ô cần nằm dài hết 2 cột (Dịch vụ, Ghi chú, Nút bấm) */
+.contact-form select, 
+.contact-form textarea,
+.contact-form button {
+    grid-column: span 2; 
+}
+
+/* Style focus giữ nguyên */
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(93,156,236,.18);
+}
+
+.contact-form button {
+    cursor: pointer;
+    /* Nếu bạn muốn nút dài full thì thêm width: 100% ở đây */
+    /* width: 100%; */
+}
+
+/* --- MOBILE RESPONSIVE --- */
+/* Trên điện thoại thì quay về 1 cột */
+@media (max-width: 480px) {
+    .contact-form form {
+        grid-template-columns: 1fr;
+    }
+    .contact-form select, 
+    .contact-form textarea,
+    .contact-form button {
+        grid-column: span 1; 
+    }
+}
 
 /* --- REVEAL HELPER --- */
 [data-reveal]{will-change:transform,opacity}

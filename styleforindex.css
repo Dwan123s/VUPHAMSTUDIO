@@ -680,15 +680,15 @@ h1,h2,h3,h4,h5,h6{
   transition: transform 0.4s ease;
 }
 
-/* Hiệu ứng gradient cyan ở dưới */
+/* Hiệu ứng gradient cyan ở dưới Dich Vu*/
 .card-img::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 40%; /* vùng phủ gradient */
-  background: linear-gradient(to top, rgba(49, 120, 145, 0.75), transparent);
+  height: 10%; /* vùng phủ gradient */
+  background: linear-gradient(to top, rgba(247, 253, 255, 0.75), transparent);
   pointer-events: none;
   transition: opacity 0.3s ease;
 }

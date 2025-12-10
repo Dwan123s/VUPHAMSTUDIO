@@ -143,8 +143,8 @@
             <option>Combo ảnh thẻ + CV</option>
             <option>Chân dung cá nhân</option>
           </select>
-          <input type="date" name="date" required>
-          <input type="time" name="time" required>
+          <input type="text" name="date" placeholder="Lịch hẹn" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required>
+          <input type="text" name="time" placeholder="Giờ hẹn" onfocus="(this.type='time')" onblur="if(!this.value)this.type='text'" required>
           <textarea name="notes" rows="4" placeholder="Ghi chú thêm..."></textarea>
           <button type="submit" class="btn">Đặt lịch</button>
         </form>
@@ -278,7 +278,7 @@
   <!-- JS -->
    <!-- JS -->
   <script>
-    const BOOK_API  = "https://script.google.com/macros/s/AKfycby9zaVW-Ue25t3U4aybFBbuZDAh7qCteS9uDVb52_2KsOYLvOiSMbc9yYexGmufRwtZrw/exec";
+    const BOOK_API  = "https://script.google.com/macros/s/AKfycbwsncFxD1NAsKGF2DrJ8UqkgKSJcoatLpvCGcZ_jbCiXLUoWopXotiur0IObV5Mw8PcLg/exec";
     const BOOK_TOKEN = "VPS_2025_myStrongToken";
 
     (function(){
