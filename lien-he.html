@@ -406,7 +406,7 @@
             let msg = data.message || 'Lỗi không xác định.';
             
             // Dịch mã lỗi sang tiếng Việt thân thiện
-            if (data.error === 'rate_limit_exceeded') msg = '⚠️ Bạn gửi quá nhanh!';
+            if (data.error === 'rate_limit_exceeded') msg = '⚠️ Bạn đã đặt lịch rồi!!';
             if (data.error === 'time_slot_taken') msg = '⚠️ Thời gian này đã có người đặt. Vui lòng chọn khung giờ khác.';
             if (data.error === 'server_busy') msg = '⚠️ Hệ thống đang bận xử lý đơn khác. Thử lại sau 5s.';
             
