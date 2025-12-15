@@ -393,7 +393,7 @@
           const data = await res.json();
           
           if(res.ok && data.ok){
-            setStatus('✅ ' + (data.message || 'Đặt lịch thành công!'), true);
+            setStatus((data.message || 'Đặt lịch hoàn tất! Studio sẽ liên hệ ngay!'), true);
             form.reset();
             // Thành công: Giữ nút disable thêm 3s để khách đọc thông báo
             setTimeout(() => {
@@ -406,11 +406,11 @@
             let msg = data.message || 'Lỗi không xác định.';
             
             // Dịch mã lỗi sang tiếng Việt thân thiện
-            if (data.error === 'rate_limit_exceeded') msg = '⚠️ Bạn gửi quá nhanh! Vui lòng đợi 10 phút.';
-            if (data.error === 'time_slot_taken') msg = '⚠️ Giờ này đã có người đặt. Vui lòng chọn giờ khác.';
+            if (data.error === 'rate_limit_exceeded') msg = '⚠️ Bạn gửi quá nhanh!';
+            if (data.error === 'time_slot_taken') msg = '⚠️ Thời gian này đã có người đặt. Vui lòng chọn khung giờ khác.';
             if (data.error === 'server_busy') msg = '⚠️ Hệ thống đang bận xử lý đơn khác. Thử lại sau 5s.';
             
-            setStatus('❌ ' + msg, false);
+            setStatus(msg, false);
             
             // Mở nút lại ngay để khách sửa
             isSubmitting = false;
