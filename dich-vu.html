@@ -33,7 +33,7 @@
 <nav aria-label="Điều hướng" class="site-nav" id="siteNav">
 <a href="index.html">Trang chủ</a>
 <a class="active"  href="dich-vu.html">Dịch vụ</a>
-<a href="lien-he.html">Đặt Lịch Nhanh!</a>
+<a href="lien-he.html">Đặt Lịch Nhanh</a>
 <a href="bang-gia.html">Bảng giá</a>
 <a href="tra-cuu.html">Tra Cứu Ảnh</a>
 <a class="btn btn-call" href="tel:0987654321">Gọi: 0987 654 321</a>
@@ -968,6 +968,35 @@ function closeLightbox() {
       });
     });
   })();
+  document.addEventListener('DOMContentLoaded', () => {
+      // Lấy phần tử
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('siteNav');
+
+      // Kiểm tra nếu tìm thấy nút và menu thì mới chạy lệnh
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', (e) => {
+          // Ngăn sự kiện click lan ra ngoài (quan trọng)
+          e.stopPropagation();
+          
+          // Thêm/Bỏ class 'show' để hiện/ẩn menu
+          navMenu.classList.toggle('show');
+          
+          // Đổi icon hamburger (☰) thành dấu X
+          const isOpen = navMenu.classList.contains('show');
+        });
+
+        // Click ra ngoài khoảng trống thì đóng menu
+        document.addEventListener('click', (e) => {
+          if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+            navMenu.classList.remove('show');
+            toggleBtn.innerHTML = '☰';
+          }
+        });
+      } else {
+        console.error("Lỗi: Không tìm thấy ID navToggle hoặc siteNav trong HTML");
+      }
+    });
   </script>
   <!-- END Added: Interaction Scripts -->
 

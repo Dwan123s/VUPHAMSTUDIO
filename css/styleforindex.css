@@ -856,3 +856,54 @@ h1,h2,h3,h4,h5,h6{
   color: #00e5ff;
   transform: scale(1.15);
 }
+/* --- Style cho Banner Quảng Cáo (Nâng cấp) --- */
+.top-banner-promo {
+  width: 100%;
+  /* Bỏ height: 100% cố định để div tự co giãn theo ảnh */
+  background-color: #fff; 
+  overflow: hidden; 
+
+  
+  
+  /* Đường viền mờ bên dưới để ngăn cách với phần Hero */
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.top-banner-promo img {
+  margin-top: -50px;
+  width: 100%;
+  height: auto;
+  display: block; 
+  object-fit: cover;
+  
+  /* Thêm hiệu ứng chuyển động mượt mà */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.3s;
+}
+
+/* --- Hiệu ứng tương tác (Làm đẹp) --- */
+/* Khi di chuột vào, ảnh sẽ sáng lên và zoom nhẹ cực kỳ tinh tế */
+.top-banner-promo:hover img {
+  transform: scale(1.02); /* Phóng to nhẹ 2% */
+  filter: brightness(1.05); /* Sáng hơn một chút */
+  cursor: pointer; /* Biến con trỏ thành hình bàn tay */
+}
+
+/* --- Tùy chỉnh cho Mobile --- */
+@media (max-width: 768px) {
+  .top-banner-promo {
+    /* Trên mobile, thêm khoảng cách dưới để không dính sát vào tiêu đề Hero */
+    margin-bottom: 0px; 
+    margin-top: 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Giảm bóng trên mobile cho nhẹ */
+  }
+
+  .top-banner-promo img {
+    /* Mẹo: Nếu ảnh banner quá dài (landscape), trên điện thoại sẽ bị rất bé.
+       Dòng dưới đây ép ảnh cao lên tối thiểu 80px để dễ nhìn hơn, 
+       nhưng lưu ý nó sẽ cắt bớt 2 bên rìa ảnh một chút (object-fit: cover).
+       Nếu ảnh chứa chữ quan trọng ở sát mép, hãy bỏ dòng min-height này đi. */
+    min-height: 80px; 
+     margin-top: 0px;
+    object-fit: cover; 
+  }
+}
