@@ -16,19 +16,70 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet"/>
- 
+  
+  <style>
+      /* Reset Box-sizing */
+      *, *:before, *:after { box-sizing: border-box; }
+
+      /* Button disabled state */
+      button:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+          background-color: #999 !important;
+          color: #fff !important;
+      }
+      
+      /* Custom Select Arrow */
+      select {
+          appearance: none;
+          -webkit-appearance: none;
+          background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+          background-repeat: no-repeat;
+          background-position: right .7em top 50%;
+          background-size: .65em auto;
+      }
+
+      /* Flex Column Form */
+      #booking-form {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          width: 100%;
+      }
+
+      /* Split Row (50-50) */
+      .form-row {
+          display: flex;
+          gap: 15px;
+          width: 100%;
+      }
+      
+      .form-row input, 
+      .form-row select {
+          flex: 1;
+          width: 100%; 
+          margin: 0 !important;
+      }
+
+      /* Full Width Elements */
+      #booking-form > input,
+      #booking-form > select,
+      #booking-form > textarea,
+      #booking-form > button {
+          width: 100%;
+          margin: 0;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 480px) {
+          .form-row {
+              flex-direction: column;
+              gap: 15px;
+          }
+      }
+  </style>
 </head>
 <body data-page="lien-he">
-  <div class="top-banner" id="topBanner" role="region" aria-label="Thông báo khuyến mãi">
-    <div class="main-container banner-inner">
-      <p class="banner-text">
-        <strong>Lịch làm việc:</strong> 08:00–20:00 (T2–CN). Hẹn trước để có slot đẹp!
-        <a href="#contact" class="banner-cta">Đặt lịch</a>
-      </p>
-      <button class="banner-close" id="bannerClose" aria-label="Đóng">✕</button>
-    </div>
-  </div>
-
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="VU PHAM STUDIO">
@@ -41,10 +92,10 @@
 
       <nav class="site-nav" id="siteNav" aria-label="Điều hướng">
         <a href="index.html">Trang chủ</a>
-        <a href="dich-vu.html" class="active">Dịch vụ</a>
+        <a href="dich-vu.html" >Dịch vụ</a>
+        <a class="active" href="lien-he.html">Đặt Lịch Nhanh!</a>
         <a href="bang-gia.html">Bảng giá</a>
         <a href="tra-cuu.html">Tra Cứu Ảnh</a>
-        <a href="lien-he.html">Liên hệ</a>
         <a href="tel:0987654321" class="btn btn-call">Gọi: 0987 654 321</a>
       </nav>
 
@@ -116,8 +167,8 @@
           <div class="form-row">
               <input type="text" name="date" placeholder="Chọn ngày" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required>
               
-             <select name="time" required>
-                <option value="">-- Giờ hẹn --</option>
+              <select name="time" required>
+                <option value="">-- Chọn giờ hẹn --</option>
                 
                 <optgroup label="Buổi Sáng">
                   <option value="08:00">08:00</option>
@@ -152,6 +203,8 @@
                   <option value="18:00">18:00</option>
                   <option value="18:30">18:30</option>
                   <option value="19:00">19:00</option>
+                  <option value="19:30">19:30</option>
+                  <option value="20:00">20:00</option>
                 </optgroup>
               </select>
           </div>
@@ -216,9 +269,9 @@
       <ul>
         <li><a href="index.html">Trang chủ</a></li>
         <li><a href="dich-vu.html">Dịch vụ</a></li>
+        <li><a href="lien-he.html">Đặt lịch nhanh!</a></li>
         <li><a href="tra-cuu.html">Tra cứu ảnh</a></li>
         <li><a href="bang-gia.html">Bảng giá</a></li>
-        <li><a href="lien-he.html">Liên hệ</a></li>
       </ul>
     </nav>
     <div class="foot-contact">
@@ -340,12 +393,11 @@
         setStatus('', true); statusEl.style.display = 'none';
 
         const fd = new FormData(form);
-        // Chuyển đổi dữ liệu sang định dạng URL Form (Backend Google thích cái này nhất)
         const params = new URLSearchParams(fd);
         params.append('action','book');
         params.append('token',BOOK_TOKEN);
 
-        // ⚡️ VALIDATION (Kiểm tra dữ liệu trước khi gửi)
+        // ⚡️ VALIDATION
         const name = (fd.get('name')||'').trim();
         const phone = (fd.get('phone')||'').trim();
         const date = fd.get('date');
@@ -365,11 +417,28 @@
            setStatus('❌ Vui lòng điền đầy đủ thông tin.', false);
            hasError = true;
         } else {
-            const today = new Date(); today.setHours(0,0,0,0);
+            // === LOGIC CHẶN GIỜ QUÁ KHỨ (ĐÃ CẬP NHẬT) ===
+            const today = new Date(); 
+            today.setHours(0,0,0,0);
+            
             const bookDate = new Date(date);
+            
+            // 1. Kiểm tra ngày
             if (bookDate < today) {
                 setStatus('❌ Ngày không hợp lệ (đừng chọn quá khứ).', false);
                 hasError = true;
+            } 
+            // 2. Nếu là HÔM NAY -> Kiểm tra giờ
+            else if (bookDate.getTime() === today.getTime()) {
+                const now = new Date();
+                const [h, m] = time.split(':').map(Number);
+                const bookTime = new Date();
+                bookTime.setHours(h, m, 0, 0);
+
+                if (bookTime <= now) {
+                    setStatus('❌ Giờ đã qua. Vui lòng chọn giờ khác.', false);
+                    hasError = true;
+                }
             }
         }
 
@@ -393,7 +462,7 @@
           const data = await res.json();
           
           if(res.ok && data.ok){
-            setStatus((data.message || 'Đặt lịch hoàn tất! Studio sẽ liên hệ ngay!'), true);
+            setStatus((data.message || 'Đặt lịch thành công! Studio sẽ gọi ngay cho bạn!'), true);
             form.reset();
             // Thành công: Giữ nút disable thêm 3s để khách đọc thông báo
             setTimeout(() => {
@@ -402,24 +471,22 @@
                 btnSubmit.innerHTML = originalBtnText;
             }, 3000);
           } else {
-            // --- BẮT LỖI TỪ BACKEND MỚI ---
             let msg = data.message || 'Lỗi không xác định.';
             
-            // Dịch mã lỗi sang tiếng Việt thân thiện
-            if (data.error === 'rate_limit_exceeded') msg = '⚠️ Bạn đã đặt lịch rồi!!';
-            if (data.error === 'time_slot_taken') msg = '⚠️ Thời gian này đã có người đặt. Vui lòng chọn khung giờ khác.';
+            // Dịch mã lỗi từ Backend (bao gồm cả lỗi past_time)
+            if (data.error === 'rate_limit_exceeded') msg = '⚠️ Bạn đã đặt lịch!!!';
+            if (data.error === 'time_slot_taken') msg = '⚠️ Giờ này đã có người đặt. Vui lòng chọn giờ khác.';
             if (data.error === 'server_busy') msg = '⚠️ Hệ thống đang bận xử lý đơn khác. Thử lại sau 5s.';
+            if (data.error === 'past_time') msg = '⚠️ Thời gian này đã trôi qua. Vui lòng chọn giờ khác.';
             
-            setStatus(msg, false);
+            setStatus( msg, false);
             
-            // Mở nút lại ngay để khách sửa
             isSubmitting = false;
             btnSubmit.disabled = false;
             btnSubmit.innerHTML = originalBtnText;
           }
         } catch(err){
           console.error(err);
-          // Lỗi này chỉ hiện khi mất mạng hoặc sai URL API
           setStatus('❌ Lỗi kết nối máy chủ. Vui lòng kiểm tra mạng.', false);
           isSubmitting = false;
           btnSubmit.disabled = false;

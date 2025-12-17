@@ -1166,3 +1166,9 @@ html, body { overflow-x: hidden; }
   color: #00e5ff;
   transform: scale(1.15);
 }
+.pricing-header{
+  margin-bottom: -20px;
+}
+.pricing-features{
+  font-size: medium;
+}
