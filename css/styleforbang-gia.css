@@ -1,11 +1,3 @@
-/* =======================================================
-   VU PHAM STUDIO — Unified Cyan CSS (UTM Montserrat)
-   - Sửa @font-face
-   - Bổ sung alias --color-* và --shadow-*
-   - Giữ nguyên selector bạn đã dùng
-   ======================================================= */
-
-/* Font */
 @font-face{
   font-family:'UTM Montserrat';
   src: url('fonts/UTM-Montserrat.woff2') format('woff2'),
@@ -16,28 +8,21 @@
   font-display: swap;
 }
 
-/* Tokens gốc */
 :root{
-  --brand:#00AEEF;     /* cyan sáng trùng logo */
-  --brand-700:#0086AD; /* cyan đậm hơn cho hover */
+  --brand:#00AEEF;
+  --brand-700:#0086AD;
   --ink:#0f172a;
   --muted:#64748b;
   --bg:#ffffff;
-  --bg-soft:#F0FBFD;   /* nền rất nhạt, hơi cyan */
-  --border:#D6F3F9;    /* viền nhạt cyan */
-
+  --bg-soft:#F0FBFD;
+  --border:#D6F3F9;
   --radius-xl:22px; --radius-lg:16px; --radius:12px;
-
-  /* Bổ sung shadow theo tên bạn đang dùng */
   --shadow:0 10px 30px rgba(3,105,161,.08);
   --shadow-sm:0 2px 10px rgba(3,105,161,.08);
   --shadow-md:0 8px 24px rgba(3,105,161,.10);
   --shadow-lg:0 18px 50px rgba(3,105,161,.14);
-
   --container:clamp(16px, 4vw, 32px);
   --maxw:1200px;
-
-  /* ===== Alias để đồng bộ các đoạn CSS cũ (không phải sửa HTML) ===== */
   --color-primary: var(--brand);
   --color-primary-strong: var(--brand-700);
   --color-text: var(--ink);
@@ -46,12 +31,9 @@
   --color-background-alt: var(--bg-soft);
   --color-border: var(--border);
   --color-dark:#0b1220;
-
-  /* Alias cho khối .svc- */
   --svc-primary: var(--color-primary);
 }
 
-/* Base */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{font-family:'UTM Montserrat', system-ui, Segoe UI, Roboto, sans-serif; color:var(--ink); background:var(--bg); line-height:1.7}
@@ -60,15 +42,12 @@ a{color:var(--brand);text-decoration:none}
 .container{max-width:var(--maxw); margin:auto; padding:0 var(--container)}
 .hide{display:none !important}
 
-/* Topbar */
 .topbar{background:var(--brand-700); color:#eafcff}
 .topbar .container{display:flex; align-items:center; justify-content:center; gap:10px; min-height:40px}
 .topbar a{color:#fff; text-decoration:underline}
 .topbar .topbar-close{margin-left:auto; background:transparent; border:0; color:#d7f6ff; font-size:18px}
 @media (max-width: 900px){ .topbar .topbar-close{display:block} }
 
-
-/* Header */
 .site-header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(120%) blur(8px); background:color-mix(in oklab, white 85%, #f0fbfd 15%); border-bottom:1px solid var(--border)}
 .header-inner{display:flex; align-items:center; justify-content:space-between; gap:14px; min-height:76px}
 .brand{display:flex; align-items:center; gap:12px}
@@ -90,7 +69,6 @@ a{color:var(--brand);text-decoration:none}
   .site-nav a{width:100%}
 }
 
-/* ---------------- TOP BANNER ---------------- */
 .top-banner{
   position:sticky;top:0;z-index:1200;
   background: linear-gradient(90deg,var(--color-primary),var(--color-primary-strong));
@@ -120,7 +98,6 @@ a{color:var(--brand);text-decoration:none}
 .banner-close:hover{background:rgba(255,255,255,.28);transform:scale(1.05)}
 @keyframes banner-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
-/* ---------------- HERO ---------------- */
 .hero{
   position:relative;isolation:isolate;
   min-height:72vh;display:grid;place-items:center;text-align:center;
@@ -166,11 +143,10 @@ a{color:var(--brand);text-decoration:none}
 }
 @keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,8px)}}
 
-/* ---------------- FEATURES / SERVICES / USP ---------------- */
 .features-section,.services,.usp{padding:clamp(28px, 6vw, 56px) 0;background:#fff}
 .section-title{
   text-align:center;font-size:clamp(22px, 3.2vw, 32px);margin-bottom:26px;font-weight:700;color:var(--color-dark);
-  opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease;
+ 
 }
 .section-title.in-view{opacity:1;transform:none}
 
@@ -197,7 +173,7 @@ a{color:var(--brand);text-decoration:none}
   width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
   background:color-mix(in oklab, var(--brand) 14%, white 86%);margin-bottom:10px
 }
-/* Hover */
+
 .usp-item:hover,.card:hover,.feature-item:hover{
   transform: translateY(-6px);
   box-shadow: 0 10px 28px rgba(0,174,239,.18);
@@ -205,7 +181,6 @@ a{color:var(--brand);text-decoration:none}
 }
 .usp-item:hover .ico{background:var(--brand);color:#fff;transform:scale(1.08);transition:transform .25s ease}
 
-/* ---------------- ABOUT BAND ---------------- */
 .about-band{background:var(--brand-700);color:#e8fbff;padding:clamp(26px, 6vw, 54px) 0}
 .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:center}
 .about-text h2{font-size:clamp(22px,3vw,30px);margin-bottom:10px;color:#fff}
@@ -228,15 +203,12 @@ a{color:var(--brand);text-decoration:none}
 .about-art img:hover{transform: scale(1.03); box-shadow:0 16px 40px rgba(0,174,239,.25)}
 @media (max-width: 960px){ .about-grid{grid-template-columns:1fr} }
 
-
-/* ---------------- FAQ ---------------- */
-.faq{padding:clamp(26px,6vw,52px) 0;background:#fff}
-.faq-item{border:1px solid var(--color-border);border-radius:14px;padding:12px 14px;background:#fff;margin-bottom:10px}
+.faq{padding:clamp(26px,0,52px) 0; background:#fff; overflow: hidden; margin-bottom: 20px;}
+.faq-item{border:1px solid var(--border); border-radius:14px; padding:12px 14px; background:#fff; margin-bottom:10px; transition: background-color .3s ease;}
 .faq-item[open]{background:#f0fbfd}
-.faq-item summary{cursor:pointer;font-weight:700;color:var(--color-dark)}
-.faq-item p{color:#64748b;margin-top:8px}
+.faq-item summary{cursor:pointer; font-weight:700; color:#0b1220}
+.faq-item p{color:#64748b; margin-top:8px}
 
-/* ---------------- CTA ---------------- */
 .cta{padding:clamp(26px, 6vw, 52px) 0;background:var(--color-background-alt)}
 .cta-box{
   display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:center;
@@ -249,7 +221,6 @@ a{color:var(--brand);text-decoration:none}
 .cta-art img{border-radius:16px;box-shadow:var(--shadow-md)}
 @media (max-width:960px){ .cta-box{grid-template-columns:1fr} }
 
-/* ---------------- FOOTER ---------------- */
 footer,.site-footer{background:#0b1220;color:#cde9f2;margin-top:14px}
 .footer-grid,.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px;padding:26px 0}
 .site-footer h4,.footer-col h4{color:#e6f6fb;margin-bottom:10px;font-weight:700}
@@ -259,14 +230,13 @@ footer,.site-footer{background:#0b1220;color:#cde9f2;margin-top:14px}
 .footer-bottom,.copyright{border-top:1px solid #142033;color:#a9c9d6;padding:12px 0;text-align:center}
 @media (max-width:900px){ .foot-grid,.footer-grid{grid-template-columns:1fr} }
 
-/* ---------------- PRICING / CONTACT ---------------- */
 .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;align-items:center}
 .pricing-card{background:#fff;border-radius:var(--radius);border:1px solid var(--color-border);padding:40px;text-align:center;transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease}
 .pricing-card.highlighted,.pricing-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:var(--shadow-lg);border-color:rgba(0,174,239,.5)}
 .pricing-header h3{font-size:1.4rem;margin-bottom:12px;color:var(--color-dark)}
 .price{font-size:2.2rem;font-weight:700;color:var(--color-primary);margin-bottom:20px}
 .pricing-features{list-style:none;margin-bottom:32px}
-.pricing-features li{padding:10px 0;border-bottom:1px solid var(--color-border)}
+.pricing-features li{ font-weight: 500;padding:2px 0;border-bottom:1px solid var(--color-border)}
 .pricing-features li:last-child{border-bottom:none}
 
 .contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:start}
@@ -285,11 +255,9 @@ footer,.site-footer{background:#0b1220;color:#cde9f2;margin-top:14px}
 .map-section{padding-top:0}
 .map-section iframe{border-radius:10px;box-shadow:var(--shadow-md)}
 
-/* Reveal helper */
 [data-reveal]{will-change:transform,opacity;opacity:0;transform:translateY(8px);transition:all .45s ease}
 .in-view{opacity:1;transform:none}
 
-/* Responsive */
 @media (max-width:960px){
   .footer-grid,.foot-grid{grid-template-columns:1fr 1fr}
 }
@@ -298,12 +266,10 @@ footer,.site-footer{background:#0b1220;color:#cde9f2;margin-top:14px}
   .footer-grid,.foot-grid{grid-template-columns:1fr}
 }
 
-/* Reduce motion */
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important;transition:none !important}
   .hero-decor{display:none}
 }
-
 
 #svcCompare img{height:auto; width:100%; object-fit:cover}
 @supports (aspect-ratio: 3/4){ #svcCompare{aspect-ratio: 3/4} }
@@ -313,7 +279,6 @@ footer,.site-footer{background:#0b1220;color:#cde9f2;margin-top:14px}
 @media (max-width: 720px){ #svcCompare.svc-compare{max-width: 420px} }
 @media (max-width: 480px){ #svcCompare.svc-compare{max-width: 320px} }
 
-/* Header responsive (logo + toggle) */
 .header-wrap{display:flex;justify-content:space-between;align-items:center;position:relative}
 .logo{display:flex;align-items:center;gap:8px;font-weight:700}
 .logo-img{height:32px;width:auto;display:block}
@@ -324,39 +289,29 @@ footer,.site-footer{background:#0b1220;color:#cde9f2;margin-top:14px}
   nav.show{display:flex}
   .nav-toggle{display:block}
 }
-/* ======================================================
-   PAGE SCOPES — Dán dưới cùng file (không xóa gì phía trên)
-   ====================================================== */
 
-/* 1) TRANG CHỦ (index) — giữ trung tính, không sáng */
 body[data-page="index"] .hero{
-  /* tắt nền cyan nhạt, dùng trắng thuần */
   background:#fff !important;
 }
 body[data-page="index"] .hero-decor{
-  /* tắt mảng blur xanh để trang chủ bớt sáng */
   display:none !important;
 }
 
-/* 2) TRANG DỊCH VỤ (dich-vu) — làm “sáng” lên (cyan mềm) */
 body[data-page="dich-vu"]{
-  /* tinh chỉnh biến chỉ cho trang dịch vụ */
-  --color-background: #F8FDFF;           /* nền sáng tổng thể */
-  --color-background-alt: #F2FAFE;       /* nền block sáng hơn chút */
-  --color-border: #CFEFF8;               /* viền xanh nhạt hơn */
+  --color-background: #F8FDFF;
+  --color-background-alt: #F2FAFE;
+  --color-border: #CFEFF8;
   --shadow-sm: 0 6px 20px rgba(0,174,239,.10);
   --shadow-md: 0 10px 28px rgba(0,174,239,.12);
   --shadow-lg: 0 18px 50px rgba(0,174,239,.18);
 }
 
-/* Thanh công cụ dịch vụ sáng và nổi khối */
 body[data-page="dich-vu"] .svc-toolbar{
   background: color-mix(in oklab, var(--color-primary) 10%, #fff 90%);
   border-color: color-mix(in oklab, var(--color-primary) 30%, #fff 70%);
   box-shadow: var(--shadow-sm);
 }
 
-/* Chip & search box tông cyan nhẹ */
 body[data-page="dich-vu"] .svc-chip{
   border-color: color-mix(in oklab, var(--color-primary) 35%, #fff 65%);
   background:#fff;
@@ -377,14 +332,12 @@ body[data-page="dich-vu"] .svc-search{
   box-shadow: var(--shadow-sm);
 }
 
-/* Badge thông số có viền cyan rõ hơn */
 body[data-page="dich-vu"] .svc-badge{
   background: rgba(0,174,239,.12);
   border-color: rgba(0,174,239,.35);
   color: #0f3a5a;
 }
 
-/* Card quy trình & mục dịch vụ sáng, viền cyan */
 body[data-page="dich-vu"] .svc-step{
   background: linear-gradient(180deg, #ffffff, var(--color-background-alt));
   border-color: color-mix(in oklab, var(--color-primary) 28%, #fff 72%);
@@ -396,19 +349,16 @@ body[data-page="dich-vu"] .svc-step:hover{
   border-color: var(--color-primary);
 }
 
-/* FAQ trang dịch vụ với nền alt khi mở */
 body[data-page="dich-vu"] .svc-qa{ border-color: color-mix(in oklab, var(--color-primary) 22%, #fff 78%); }
 body[data-page="dich-vu"] .svc-qa[open]{
   background: var(--color-background-alt);
 }
 
-/* Modal chi tiết có bóng sáng hơn */
 body[data-page="dich-vu"] .svc-dialog{
   box-shadow: var(--shadow-lg);
   border-color: color-mix(in oklab, var(--color-primary) 24%, #fff 76%);
 }
 
-/* Nút phụ theo tông cyan */
 body[data-page="dich-vu"] .btn-sm{
   background: var(--color-primary);
   color:#fff;
@@ -418,9 +368,8 @@ body[data-page="dich-vu"] .btn-sm:hover{
   background: var(--color-primary-strong);
 }
 
-/* Before/After slider nhấn cyan */
 body[data-page="dich-vu"] #svcCompare.svc-compare{
-  background: #000; /* giữ ảnh nổi */
+  background: #000;
   box-shadow: 0 12px 30px rgba(0,174,239,.18);
   border-color: color-mix(in oklab, var(--color-primary) 26%, #fff 74%);
 }
@@ -432,12 +381,10 @@ body[data-page="dich-vu"] #svcCompare .svc-dot{
   border-color: color-mix(in oklab, var(--color-primary) 40%, #fff 60%);
 }
 
-/* Lưới dịch vụ nếu bạn đang dùng chung .cards/.features-section
-   thì chỉ sáng trong trang dịch vụ */
 body[data-page="dich-vu"] .features-section,
 body[data-page="dich-vu"] .services,
 body[data-page="dich-vu"] .usp{
-  background: var(--color-background); /* tổng thể sáng */
+  background: var(--color-background);
 }
 body[data-page="dich-vu"] .card,
 body[data-page="dich-vu"] .feature-item,
@@ -454,34 +401,28 @@ body[data-page="dich-vu"] .usp-item:hover{
   transform: translateY(-6px);
 }
 
-
-/* --- Dark CTA button for strong actions (e.g., Đặt lịch ngay) --- */
 .btn-dark{
-  background:#13203b; /* near-black */
+  background:#13203b;
   color:#ffffff;
   border-color: transparent;
   box-shadow: var(--shadow);
 }
 .btn-dark:hover{ background:#0b1220; color:#fff }
 .btn-dark:active{ transform: translateY(1px) }
-/* Nút outline (bên phải: Xem gói) */
 .btn-outline {
   background: transparent;
   border: 2px solid var(--color-primary);
-  color: var(--color-primary);      /* màu chữ rõ hơn */
-  font-weight: 600;                 /* làm chữ đậm */
-  opacity: 1 !important;            /* ép không bị nhạt */
+  color: var(--color-primary);
+  font-weight: 600;
+  opacity: 1 !important;
 }
 
-/* Hover cho nút outline */
 .btn-outline:hover {
   background: color-mix(in oklab, var(--color-primary) 10%, #fff 90%);
-  color: var(--brand-700);          /* đậm hơn khi hover */
+  color: var(--brand-700);
   border-color: var(--brand-700);
 }
 
-
-/* --- Service card visuals: icon bubble + spacing --- */
 .feature-item{ display:flex; gap:14px; align-items:flex-start }
 .feature-item .feature-icon{
   width:44px; height:44px; flex:0 0 44px;
@@ -492,15 +433,12 @@ body[data-page="dich-vu"] .usp-item:hover{
 }
 .feature-item .feature-actions{ margin-top:10px; display:flex; gap:8px; flex-wrap:wrap }
 
-
 @media (max-width: 600px){
   .svc-search{ min-width:unset; width:100% }
   .svc-search input{ width:100% }
   .features-grid{ gap:18px }
 }
 
-
-/* Pricing ribbon */
 .pricing-card{ position:relative; }
 .pricing-card .ribbon{
   position:absolute; top:14px; right:-8px;
@@ -510,7 +448,6 @@ body[data-page="dich-vu"] .usp-item:hover{
   transform: rotate(6deg);
 }
 
-/* --- MINI GALLERY (ảnh 3x4) --- */
 .mini-gallery {
   padding: clamp(26px, 6vw, 52px) 0;
   background: #fff;
@@ -545,7 +482,6 @@ body[data-page="dich-vu"] .usp-item:hover{
   object-fit: cover;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .mini-gallery-grid {
     grid-template-columns: 1fr 1fr;
@@ -556,7 +492,7 @@ body[data-page="dich-vu"] .usp-item:hover{
     grid-template-columns: 1fr;
   }
 }
-/* Khóa bề ngang cho tất cả vùng dùng main-container */
+
 .main-container,
 .container{
   max-width: var(--maxw);
@@ -564,23 +500,18 @@ body[data-page="dich-vu"] .usp-item:hover{
   padding-inline: var(--container);
 }
 
-/* Chặn tràn ngang toàn trang (phòng trường hợp bóng/transform gây tràn) */
 html, body { overflow-x: hidden; }
-/* Mini Gallery không tràn */
-.mini-gallery { overflow: hidden; }           /* chặn phần tử con tràn */
-.mini-gallery-grid { max-width: 100%; }       /* không rộng hơn khung */
-.mini-gallery-grid figure { margin: 0; }      /* tránh margin gây trượt khung */
-.mini-gallery-grid img { display:block; }     /* không tạo khoảng trắng inline *//* =======================================================
-   MOBILE-ONLY OVERRIDES (≤ 768px) — chỉ ảnh hưởng mobile
-   ======================================================= */
+.mini-gallery { overflow: hidden; }
+.mini-gallery-grid { max-width: 100%; }
+.mini-gallery-grid figure { margin: 0; }
+.mini-gallery-grid img { display:block; }
+
 @media (max-width: 768px){
 
-  /* Ngăn tràn ngang & padding gọn lại */
   html, body { overflow-x: hidden; }
   .container, .main-container { padding-inline: clamp(12px, 4vw, 16px); }
 
-  /* Topbar / Top-banner / Header */
-  .top-banner { position: static; } /* tránh đè sticky với header */
+  .top-banner { position: static; }
   .header-inner { min-height: 64px; gap: 10px; }
   .brand img { width: 36px; height: 36px; border-radius: 10px; }
   .brand-title { font-size: 1rem; }
@@ -589,7 +520,6 @@ html, body { overflow-x: hidden; }
   .banner-text { font-size: .95rem; line-height: 1.45; }
   .banner-cta { padding: 8px 14px; font-size: .95rem; margin-left: 0; }
 
-  /* Nav (đúng .site-nav bạn dùng) */
   .nav-toggle { display: inline-flex; }
   .site-nav{
     position: fixed; left: auto; right: 0; top: 64px;
@@ -600,7 +530,6 @@ html, body { overflow-x: hidden; }
   .site-nav.show { display: flex; }
   .site-nav a { width: 100%; padding: 12px 10px; border-radius: 10px; }
 
-  /* Hero */
   .hero{
     min-height: 58vh;
     padding: 56px 16px;
@@ -618,43 +547,34 @@ html, body { overflow-x: hidden; }
   }
   .scroll-indicator { display: none; }
 
-  /* Lưới chung (features/cards/usp) */
   .features-section, .services, .usp { padding: 48px 0; }
   .section-title { font-size: 1.8rem; margin-bottom: 26px; }
   .features-grid, .cards { grid-template-columns: 1fr; gap: 16px; }
   .feature-item, .card, .usp-item { padding: 16px; }
   .usp-grid { grid-template-columns: 1fr; gap: 14px; }
 
-  /* About band */
   .about-grid { grid-template-columns: 1fr; gap: 16px; }
   .about-actions { gap: 10px; }
 
-  /* Testimonials */
   .t-grid { grid-template-columns: 1fr; gap: 12px; }
   .t-card { padding: 14px; }
 
-  /* FAQ */
   .faq-item { padding: 12px; }
 
-  /* CTA */
   .cta-box { grid-template-columns: 1fr; gap: 14px; padding: 16px; }
   .cta-copy h2 { font-size: 1.25rem; }
 
-  /* Footer */
   .footer-grid, .foot-grid { grid-template-columns: 1fr; gap: 20px; padding: 22px 0; }
   .footer-bottom, .copyright { padding: 12px 0; }
 
-  /* Pricing */
   .pricing-grid { grid-template-columns: 1fr; gap: 18px; }
   .pricing-card { padding: 22px; }
 
-  /* Contact */
   .contact-grid { grid-template-columns: 1fr; gap: 22px; }
   .map-section iframe {
     width: 100% !important; height: 260px !important; border-radius: 10px;
   }
 
-  /* Khối .svc- (Dịch vụ) */
   .svc-toolbar { gap: 8px; }
   .svc-search { min-width: unset; width: 100%; }
   .svc-search input { width: 100%; }
@@ -662,78 +582,63 @@ html, body { overflow-x: hidden; }
   @media (max-width: 520px){ .svc-steps{ grid-template-columns: 1fr; } }
   #svcCompare.svc-compare { max-width: 92vw; }
 
-  /* Mini Gallery */
   .mini-gallery { padding: 40px 0; }
   .mini-gallery-grid { grid-template-columns: 1fr; gap: 14px; }
 
-  /* Nút chung */
   .btn { border-radius: 999px; font-size: 1rem; }
   .btn-dark { width: 100%; max-width: 360px; }
 
-  /* Giảm shadow để tránh “lệch khung” do blur lớn */
   .feature-item, .card, .usp-item, .pricing-card, .btn {
     box-shadow: 0 8px 22px rgba(0,174,239,.12);
   }
 }
 
-/* Rất nhỏ (≤ 360px) tối ưu thêm */
 @media (max-width: 360px){
   .hero { padding: 48px 14px; }
   .hero h1 { font-size: 1.55rem; }
   .banner-cta { width: 100%; text-align: center; }
 }
-/* =========== CONTACT PAGE: chống sát mép trên mobile =========== */
+
 @media (max-width: 768px){
-  /* Tăng padding ngang mặc định */
   .container,
   .main-container{
     padding-inline: clamp(14px, 4.5vw, 18px) !important;
   }
 
-  /* Nếu block Liên hệ không bọc .container thì thêm đệm an toàn */
   body[data-page="lien-he"] section,
   body[data-page="lien-he"] .contact,
   body[data-page="lien-he"] .contact-section{
     padding-inline: clamp(14px, 4.5vw, 18px);
   }
 
-  /* Riêng lưới form Liên hệ giữ 1 cột và không tràn */
   .contact-grid{
     grid-template-columns: 1fr !important;
     gap: 18px;
   }
 
-  /* H1/H2 trong trang Liên hệ có khoảng cách đẹp hơn */
   body[data-page="lien-he"] h1,
   body[data-page="lien-he"] h2{
     margin-left: 2px;
     margin-right: 2px;
   }
 }
-/* === (giữ nguyên nội dung cũ của bạn ở trên) === */
 
-/* … toàn bộ phần CSS hiện có … */
-
-/* ========== FLOATING CONTACTS (nổi) ========== */
 .floating-contacts{
   position: fixed;
-  inset: auto 0 0 0;         /* để con có thể neo trái/phải dễ */
-  pointer-events: none;       /* để không chặn click ngoài nút */
+  inset: auto 0 0 0;
+  pointer-events: none;
   z-index: 1300;
 }
 
-/* Cụm bên trái (Zalo + Fanpage) */
 .floating-contacts .fc-left{
   position: fixed;
   left: 16px;
   display: grid;
   gap: 10px;
   pointer-events: auto;
-  /* mặc định neo dưới; nếu có sticky-book (mobile) thì cao hơn  */
   bottom: 20px;
 }
 
-/* Nút tròn */
 .fc-btn{
   width: 48px; height: 48px;
   border-radius: 999px;
@@ -745,11 +650,9 @@ html, body { overflow-x: hidden; }
 }
 .fc-btn:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.14); }
 
-/* Màu viền theo brand */
 .fc-zalo{ border-color: #8ab7ff; }
 .fc-fb{ border-color: #91b8ff; }
 
-/* Chat bên phải */
 .fc-chat{
   position: fixed;
   right: 16px;
@@ -769,18 +672,15 @@ html, body { overflow-x: hidden; }
 }
 .fc-chat:hover{ transform: translateY(-2px); box-shadow: 0 16px 36px rgba(0,174,239,.35); }
 
-/* Ẩn trên rất hẹp nếu cần (tuỳ chọn) */
 @media (max-width: 360px){
   .fc-chat{ display:none; }
 }
 
-/* Khi KHÔNG có sticky mobile bar (≥720px) thì hạ gần mép hơn */
 @media (min-width: 720px){
   .floating-contacts .fc-left{ bottom: 24px; }
   .fc-chat{ bottom: 24px; }
 }
 
-/* Đảm bảo sticky-book không đè (mobile) */
 .sticky-book{
   position: fixed;
   left: 0; right: 0; bottom: 0;
@@ -791,10 +691,8 @@ html, body { overflow-x: hidden; }
 .sticky-book .btn{ flex:1; text-align:center; }
 @media (min-width: 720px){ .sticky-book{ display:none; } }
 
-/* Ghi chú phí (nhỏ) */
 .note-fee{ margin-top:12px;color:#6B7C93;font-size:14px }
 
-/* ====== Floating Contacts (fixed, visible even without JS) ====== */
 .floating-contacts{ position: static; }
 
 .floating-contacts .fc-left{
@@ -822,7 +720,6 @@ html, body { overflow-x: hidden; }
   animation: fc-slide-right .5s cubic-bezier(.22,.9,.35,1) .12s both;
 }
 
-/* Round icon buttons */
 .fc-btn{
   width:48px;height:48px;
   display:grid;place-items:center;
@@ -836,7 +733,6 @@ html, body { overflow-x: hidden; }
 .fc-zalo{border:2px solid #0068ff}
 .fc-fb{border:2px solid #1877f2}
 
-/* On scroll down, slightly minimize */
 .floating-contacts.is-min .fc-left .fc-btn{ transform: scale(.92); }
 .floating-contacts.is-min .fc-chat{ transform: translateY(4px) scale(.96); opacity:.95; }
 
@@ -849,46 +745,43 @@ html, body { overflow-x: hidden; }
   .floating-contacts .fc-chat{font-size:14px;padding:.55rem 1rem}
 }
 
-/* Respect reduce motion */
 @media (prefers-reduced-motion: reduce){
   .floating-contacts .fc-left,
   .floating-contacts .fc-chat{ animation:none !important; }
 }
 
-/* Respect reduce motion */
 @media (prefers-reduced-motion: reduce){
   .floating-contacts .fc-left,
   .floating-contacts .fc-chat{ animation:none !important; }
 }
-/* Nút kiểu outline (viền) */
 .btn-outline {
-  background-color: transparent; /* Bỏ màu nền */
-  border: 2px solid var(--brand);    /* Thêm viền 2px với màu cyan */
-  color: var(--brand);               /* Đổi màu chữ thành màu cyan */
-  font-weight: 700;                  /* Đảm bảo chữ đậm nét */
+  background-color: transparent;
+  border: 2px solid var(--brand);
+  color: var(--brand);
+  font-weight: 700;
 }
 
-/* Hiệu ứng khi di chuột vào */
 .btn-outline:hover {
-  background-color: var(--brand); /* Đổi nền thành màu cyan */
-  color: #fff;                     /* Đổi chữ thành màu trắng */
-  transform: translateY(-2px);    /* Hiệu ứng nhấc lên nhẹ */
-}/* ===== Compare table (fix width, alignment, responsive) ===== */
+  background-color: var(--brand);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 .cmp-wrap{
-  overflow:auto;                 /* cho phép cuộn ngang khi hẹp */
+  overflow:auto;
   -webkit-overflow-scrolling:touch;
   margin-top: 10px;
 }
 
 .cmp{
-  width:100%;                    /* GIÃN HẾT NGANG */
+  width:100%;
   border-collapse:collapse;
-  table-layout:fixed;            /* cột chia đều, tránh nhảy kích thước */
-  min-width: 680px;              /* giữ form cột trên mobile, có scroll */
+  table-layout:fixed;
+  min-width: 680px;
   background:#fff;
   border:1px solid var(--color-border, #EAECEE);
   border-radius:12px;
-  overflow:hidden;               /* bo góc cho table */
+  overflow:hidden;
 }
 
 .cmp th,
@@ -898,48 +791,41 @@ html, body { overflow-x: hidden; }
   vertical-align:top;
   font-size: 15px;
   color: var(--color-text, #0f172a);
-  word-break: break-word;        /* cho phép xuống dòng câu dài */
+  word-break: break-word;
 }
 
-/* Hàng đầu */
 .cmp thead th{
   background: color-mix(in oklab, var(--brand,#00AEEF) 8%, #fff 92%);
   color:#0b1220;
   font-weight:800;
 }
 
-/* Cột mô tả (cột 1) rộng hơn, căn trái */
 .cmp th:first-child,
 .cmp td:first-child{
   width: 38%;
   text-align:left;
   font-weight:600;
   color:#0b1220;
-  white-space: normal;           /* cho phép xuống dòng */
+  white-space: normal;
 }
 
-/* Các cột gói căn giữa */
 .cmp th:not(:first-child),
 .cmp td:not(:first-child){
   text-align:center;
 }
 
-/* Kẻ sọc nhẹ cho dễ đọc */
 .cmp tbody tr:nth-child(odd) td{
   background:#fafcff;
 }
 
-/* Dấu check & gạch ngang cho đồng nhất */
 .cmp td{ font-variant-numeric: tabular-nums; }
 .cmp td:contains("✔"), .cmp td:contains("—"){ font-weight:700; }
 
-/* Responsive nhỏ hơn 520px: giảm padding, font */
 @media (max-width:520px){
   .cmp th, .cmp td{ padding:10px 12px; font-size:14px; }
   .cmp{ min-width: 560px; }
 }
 
-/* đảm bảo header nổi trên hero */
 .site-header{
   position: sticky; top: 0; z-index: 1000;
   backdrop-filter: saturate(120%) blur(8px);
@@ -947,7 +833,6 @@ html, body { overflow-x: hidden; }
   border-bottom: 1px solid var(--border, #e6eef4);
 }
 
-/* —— Desktop ≥981px: nav luôn hàng ngang, nền trong suốt —— */
 @media (min-width: 981px){
   .site-nav{
     position: static !important;
@@ -964,13 +849,12 @@ html, body { overflow-x: hidden; }
   .site-nav a{ width: auto !important; }
 }
 
-/* —— Mobile ≤980px: nav là panel nổi, ẩn mặc định —— */
 @media (max-width: 980px){
   .nav-toggle{ display: inline-flex; }
   .site-nav{
     position: fixed;
     right: 12px; left: 10px;
-    top: calc(64px);           /* = chiều cao header + 12px */
+    top: calc(64px);
     display: none;
     flex-direction: column;
     gap: 8px;
@@ -980,13 +864,12 @@ html, body { overflow-x: hidden; }
     padding: 14px;
     box-shadow: var(--shadow, 0 10px 30px rgba(3,105,161,.08));
     max-width: 360px;
-    margin-left: auto;                 /* đẩy sát bên phải */
+    margin-left: auto;
   }
   body.nav-open .site-nav{ display: flex; }
   .site-nav a{ width: 100%; }
 }
 
-/* style active link thống nhất */
 .site-nav a.active, .site-nav a:hover{
   background: color-mix(in oklab, var(--brand, #00AEEF) 12%, #fff 88%);
   color: var(--brand, #00AEEF);
@@ -997,10 +880,9 @@ html, body { overflow-x: hidden; }
   pointer-events:none;
 }
 
-/* Hero floating icons nhiều loại */
 .hero-icons .icon { 
   position: absolute;
-  --size: 100px;           /* mặc định */
+  --size: 100px;
   width: var(--size);
   height: var(--size);
   color: rgba(0,174,239,.18);
@@ -1009,7 +891,6 @@ html, body { overflow-x: hidden; }
   transition: width .3s ease, height .3s ease;
 }
 
-/* Vị trí & size riêng */
 .hero-icons .cam   { top:15%; left:10%;  --size: 80px; animation-delay:0s; }
 .hero-icons .lens  { top:25%; right:20%; --size: 70px; animation-delay:2s; }
 .hero-icons .flash { bottom:18%; left:15%; --size: 80px; animation-delay:4s; }
@@ -1017,7 +898,6 @@ html, body { overflow-x: hidden; }
 .hero-icons .card  { bottom:25%; right:12%; --size: 60px; animation-delay:8s; }
 .hero-icons .frame { top:12%; right:35%; --size: 45px; animation-delay:10s; }
 
-/* Bay + đổi kích cỡ */
 @keyframes floatScale {
   0%   { transform: translateY(0) scale(0.9) rotate(0deg); }
   50%  { transform: translateY(-20px) scale(1.15) rotate(4deg); }
@@ -1025,10 +905,10 @@ html, body { overflow-x: hidden; }
 }
 @media (max-width: 768px) {
   body {
-    padding-bottom: 90px; /* = chiều cao của floating bar */
+    padding-bottom: 90px;
   }
 }
-/* --- FOOTER LOGO AREA --- */
+
 .foot-about {
   display: flex;
   flex-direction: column;
@@ -1036,11 +916,10 @@ html, body { overflow-x: hidden; }
   justify-content: flex-start;
   text-align: center;
   gap: 16px;
-  margin-top: -40px; /* đẩy khối logo lên cao hơn */
-  transform: translateY(-40px); /* di chuyển toàn khối lên 10px */
+  margin-top: -40px;
+  transform: translateY(-40px);
 }
 
-/* Logo nhẹ, sáng, trung tâm */
 .foot-about img {
   width: 270px;
   height: auto;
@@ -1054,7 +933,6 @@ html, body { overflow-x: hidden; }
   filter: drop-shadow(0 0 14px rgba(0, 236, 255, 0.6));
 }
 
-/* Dòng chữ dưới logo */
 .foot-about p {
   color: #9fd8e8;
   font-size: 0.95rem;
@@ -1063,16 +941,14 @@ html, body { overflow-x: hidden; }
   font-weight: 500;
 }
 
-/* --- SOCIAL ICONS (CONTACT ICONS) --- */
 .foot-socials {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-top: -60px; /* icon gần logo hơn một chút */
+  margin-top: -60px;
 }
 
-/* Nút icon tròn, bóng nhẹ */
 .foot-socials a {
   position: relative;
   display: inline-flex;
@@ -1088,7 +964,6 @@ html, body { overflow-x: hidden; }
   box-shadow: 0 0 0 rgba(0, 188, 212, 0);
 }
 
-/* Hiệu ứng hover */
 .foot-socials a:hover {
   background: #00bcd4;
   color: #fff;
@@ -1096,13 +971,11 @@ html, body { overflow-x: hidden; }
   box-shadow: 0 0 12px rgba(0, 188, 212, 0.5);
 }
 
-/* Kích thước icon */
 .foot-socials svg {
   width: 22px;
   height: 22px;
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 600px) {
   .foot-about {
     transform: translateY(-6px);
